@@ -24,8 +24,8 @@ class mainController
 	{
 		$context->user = utilisateurTable::getUserByLoginAndPass('User1', '0bc8658ea4e2f64af9d6890eace91a819f9f2046');
         $context->trip = trajetTable::getTrajet('Angers','Amiens');
-        $context->travel = voyageTable::getVoyagesByTrajet(405);
-        $context->reservation = reservationTable::getReservationByVoyage(674);
+        //$context->travel = voyageTable::getVoyagesByTrajet(405);
+        //$context->reservation = reservationTable::getReservationByVoyage(674);
         $context->user_id = utilisateurTable::getUserById(2);
 
         return context::SUCCESS;
