@@ -19,7 +19,7 @@
     <br>
     Id : <?php echo $context->trip->id ?>
     <br>
-    Depart:  <?php echo $context->trip->depart ?>
+    Départ:  <?php echo $context->trip->depart ?>
     <br>
     Arrivée : <?php echo $context->trip->arrivee ?>
     <br>
