@@ -3,7 +3,9 @@
     <br>
     Id : <?php echo $context->user->id ?> 
     <br>
-    identifiant : <?php echo $context->user->identifiant ?> 
+    Identifiant : <?php echo $context->user->identifiant ?> 
+    <br>
+    Mot de Passe : <?php echo $context->user->pass ?> 
     <br>
     Prénom : <?php echo $context->user->nom ?> 
     <br>
@@ -56,6 +58,8 @@
     Id : <?php echo $context->user_id->id ?> 
     <br> 
     Identifiant : <?php echo $context->user_id->identifiant ?> 
+    <br> 
+    Mot de passe : <?php echo $context->user_id->pass ?> 
     <br> 
     Prénom : <?php echo $context->user_id->prenom ?> 
     <br> 
