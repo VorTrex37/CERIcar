@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @Entity
  * @Table(name="jabaianb.utilisateur")
  */
-class utilisateur{
+class utilisateur {
 
 	/** @Id @Column(type="integer")
 	 *  @GeneratedValue
