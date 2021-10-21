@@ -9,7 +9,7 @@ class reservationTable {
 		$em = dbconnection::getInstance()->getEntityManager();
 
 		$reservationRepository = $em->getRepository('reservation');
-		$reservation = $reservationRepository->findBy(array('voyage' => $travel));	
+		$reservation = $reservationRepository->findBy(array('voyage' => $travel->id));	
 		
 		if ($reservation == false){
 			echo 'Erreur sql : aucune réservation trouvée';

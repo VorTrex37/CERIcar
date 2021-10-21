@@ -9,7 +9,7 @@ class voyageTable {
   		$em = dbconnection::getInstance()->getEntityManager();
 
 		$voyageRepository = $em->getRepository('voyage');
-		$voyage = $voyageRepository->findBy(array('trajet' => $trip));	
+		$voyage = $voyageRepository->findBy(array('trajet' => $trip->id));	
 	
 		if ($voyage == false){
 			echo 'Erreur sql : aucun voyage trouvé';
