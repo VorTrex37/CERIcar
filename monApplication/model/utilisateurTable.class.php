@@ -9,11 +9,7 @@ class utilisateurTable {
 		$em = dbconnection::getInstance()->getEntityManager();
 
 		$userRepository = $em->getRepository('utilisateur');
-		$user = $userRepository->findOneBy(array('identifiant' => $login, 'pass' => sha1($pass)));	
-		
-		if ($user == false){
-			echo 'Erreur sql : aucun utilsateur trouvé avec ce mot de passe ou identifiant';
-		}
+		$user = $userRepository->findOneBy(array('identifiant' => $login, 'pass' => sha1($pass)));
 
 		return $user; 
 	}
@@ -25,9 +21,6 @@ class utilisateurTable {
 	  	$userRepository = $em->getRepository('utilisateur');
 		$user = $userRepository->findOneBy(array('id' => $id));	
 		
-		if ($user == false){
-			echo 'Erreur sql : aucun utilisateur trouvé';
-		}
 		return $user; 
 	}
 }

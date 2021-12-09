@@ -9,13 +9,21 @@ class trajetTable {
 		$em = dbconnection::getInstance()->getEntityManager();
 
 		$trajetRepository = $em->getRepository('trajet');
-		$trajet = $trajetRepository->findOneBy(array('depart' => $start, 'arrivee' => $finish));	
-		
-		if ($trajet == false){
-			echo 'Erreur sql : aucun trajet trouvé';
-		}
+		$trajet = $trajetRepository->findOneBy(array('depart' => $start, 'arrivee' => $finish));
 		
 		return $trajet; 
+	}
+
+	public static function getCities() 
+	{
+		$em = dbconnection::getInstance()->getEntityManager() ;
+		$trajetRepository = $em->getRepository('trajet');
+		$cities = $trajetRepository->findAll();
+
+		return [
+			"depart" => array_unique(array_column($cities, 'depart')),
+			'arrivee' => array_unique(array_column($cities, 'arrivee')),
+		];
 	}
 }
 
