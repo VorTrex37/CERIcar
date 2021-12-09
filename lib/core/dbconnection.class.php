@@ -1,9 +1,11 @@
 <?php
 
-define ('HOST', 'pedago01c.univ-avignon.fr') ;
-define ('USER', ''  ) ;
-define ('PASS', '' ) ;
-define ('DB', 'etd' ) ;
+$dbconfig = include('config/database.php');
+
+define ('HOST', $dbconfig['HOST']) ;
+define ('USER', $dbconfig['USER']) ;
+define ('PASS', $dbconfig['PASS']) ;
+define ('DB', $dbconfig['DB']) ;
 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
