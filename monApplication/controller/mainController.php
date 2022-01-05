@@ -84,7 +84,7 @@ class mainController
 
 		if ($context->nom && $context->prenom && $context->pseudo && $context->password) {
 				utilisateurTable::createUser($context->nom, $context->prenom, $context->pseudo, $context->password);
-				header('Location: monApplication.php?action=userInscription');
+				header('Location: monApplication.php?action=userConnect');
 		} else {
 			$context->status = 'warning';
 			$context->message = "Veuillez remplir tous les champs";
