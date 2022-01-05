@@ -41,11 +41,21 @@ class trajetTable {
 		$voyageRepository = $emv->getRepository('voyage');
 
 		$trip = [];
+		$tmp = [];
 		
 		foreach ($trajet as $travel) {
 			$voyage = $voyageRepository->find($travel['v_id_voyage']);
-			array_push($trip, $voyage);
+			if ($voyage->trajet->depart == $start && $voyage->trajet->arrivee == $finish) {
+				array_push($trip, $voyage);
+			}
+			if ($voyage->trajet->depart != $start || $voyage->trajet->arrivee != $finish) {
+				array_push($tmp, $voyage);
+			}
+			if ($voyage->trajet->depart != $start && $voyage->trajet->arrivee == $finish) {
+				array_push($trip, $tmp);
+			}
 		}
+		var_dump($trip);
 		return $trip;
 	}
 }
