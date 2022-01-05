@@ -29,10 +29,10 @@ class utilisateurTable {
 		$em = dbconnection::getInstance()->getEntityManager()->getConnection();
 		
 		$e = new utilisateur();
-		$e->nom = $nom;
+		$e->identifiant = $pseudo;
+		$e->pass = $mdp;
 		$e->prenom = $prenom;
-		$e->pseudo = $pseudo;
-		$e->mdp = $mdp;
+		$e->nom = $nom;
 
 		$em->persit($e);
 
