@@ -1,4 +1,4 @@
-<?php var_dump($context->user)?>
+<?php var_dump(get_current_user())?>
 <form method="POST" class="vh-100">
    <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
