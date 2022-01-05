@@ -8,12 +8,12 @@
 
             <div class="form-group mb-4">
               <label class="form-label" for="pseudo">Pseudo</label>
-              <input type="text" id="pseudo" class="form-control form-control-lg" name="pseudo"/>
+              <input type="text" id="pseudo" class="form-control form-control-lg" name="pseudo" required/>
             </div>
 
             <div class="form-group mb-4">
               <label class="form-label" for="password">Mot de passe</label>
-              <input type="password" id="password" class="form-control form-control-lg" name="password"/>
+              <input type="password" id="password" class="form-control form-control-lg" name="password" required/>
             </div>
 
             <button class="btn btn-primary btn-lg btn-block" id="connexion" type="submit" name="connexion">Login</button>
