@@ -81,9 +81,7 @@ class mainController
 		$context->prenom = $request["prenom"] ?? null;
 		$context->pseudo = $request["pseudo"] ?? null;
 		$context->password = $request["password"] ?? null;
-		$context->status = '';
-		$context->message = '';
-		
+
 		if ($context->nom && $context->prenom && $context->pseudo && $context->password) {
 				$context->status = 'sucess';
 				$context->message = "Votre compte a été créé";
@@ -98,6 +96,22 @@ class mainController
 	}
 
 	public static function index($request,$context){
+
+		$context->pseudo = $request["pseudo"] ?? null;
+		$context->password = $request["password"] ?? null;
+
+		if ($context->pseudo && $context->password) {
+				$context->status = 'sucess';
+				$context->message = "Connexion réussi";
+				$user = utilisateurTable::getUserByLoginAndPass($context->pseudo, $context->password);
+				session_start();
+				var_dump($user);
+				$_SESSION['id'] = $user->id;
+				header('Location: monApplication.php?action=userConnect');
+		} else {
+			$context->status = 'warning';
+			$context->message = "Veuillez remplir tous les champs";
+		}
 		
 		return context::SUCCESS;
 	}
