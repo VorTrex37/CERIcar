@@ -84,12 +84,9 @@ class mainController
 		$context->confpassword = $request["confpassword"] ?? null;
 
 		if ($context->nom && $context->prenom && $context->pseudo && $context->password && $context->confpassword) {
-			if ($context->password != $context->confpassword) {
-				$context->status = 'danger';
-				$context->message = "Les deux mots de passe ne sont pas identiques";
-			} else {
 				utilisateurTable::createUser($context->nom, $context->prenom, $context->pseudo, $context->password);
-			}
+				$context->status = 'success';
+				$context->message = "Votre compte a bien été créé";
 		} else {
 			$context->status = 'warning';
 			$context->message = "Veuillez remplir tous les champs";

@@ -25,11 +25,6 @@
               <label class="form-label" for="password">Mot de passe</label>
               <input type="password" id="password" class="form-control form-control-lg" name="password" required/>
             </div>
-
-            <div class="form-group mb-4">
-              <label class="form-label" for="confpassword">Confirmation du mot de passe</label>
-              <input type="password" id="confpassword" class="form-control form-control-lg" name="confpassword" required/>
-            </div>
             <button class="btn btn-primary btn-lg btn-block" id="inscription" type="submit" name="inscription">Envoyer</button>
           </div>
         </div>

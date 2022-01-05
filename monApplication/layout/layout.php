@@ -37,7 +37,7 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="monApplication.php">Home</a>
@@ -46,7 +46,7 @@
           <a class="nav-link" href="monApplication.php?action=searchTravel">Recherche de voyage</a>
         </li>
       </ul>
-      <ul class="nav-text">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" href="monApplication.php?action=userInscription">Inscription</a>
         </li>
