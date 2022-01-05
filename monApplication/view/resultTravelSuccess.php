@@ -15,10 +15,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
                 <?php if (is_array($travel)) { ?>
                     <?php foreach ($travel as $test){?> 
-                        <tbody>
                             <tr>
                                 <td><?php echo $test->nbPlace ?></td>
                                 <td><?php echo $test->heureDepart . ' h'?></td>
@@ -29,7 +27,6 @@
                             </tr>
                     <?php } ?>
                     <?php }else { ?>
-                        <tbody>
                             <tr>
                                 <td><?php echo $travel->nbPlace ?></td>
                                 <td><?php echo $travel->heureDepart . ' h'?></td>
@@ -38,8 +35,8 @@
                                 <td><?php echo $travel->contraintes ?></td>
                                 <td><?php echo $travel->trajet->depart . '-' . $travel->trajet->arrivee?></td>
                             </tr>
-                        <?php } ?> 
-                    </tbody>
+                    <?php } ?> 
+            </tbody>
             </table>
         <?php } ?>
     <?php }?>
