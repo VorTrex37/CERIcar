@@ -30,7 +30,7 @@ class utilisateurTable {
 		
 		$e = new utilisateur();
 		$e->identifiant = $pseudo;
-		$e->pass = $mdp;
+		$e->pass = sha1($mdp);
 		$e->prenom = $prenom;
 		$e->nom = $nom;
 
