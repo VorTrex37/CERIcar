@@ -81,10 +81,10 @@ class mainController
 		$context->prenom = $request["prenom"] ?? null;
 		$context->pseudo = $request["pseudo"] ?? null;
 		$context->password = $request["password"] ?? null;
-		$context->confpassword = $request["confpassword"] ?? null;
 
-		if ($context->nom && $context->prenom && $context->pseudo && $context->password && $context->confpassword) {
-				utilisateurTable::createUser($context->nom, $context->prenom, $context->pseudo, $context->password);
+		if ($context->nom && $context->prenom && $context->pseudo && $context->password) {
+				$test =utilisateurTable::createUser($context->nom, $context->prenom, $context->pseudo, $context->password);
+				var_dump($test);
 				$context->status = 'success';
 				$context->message = "Votre compte a bien été créé";
 		} else {
