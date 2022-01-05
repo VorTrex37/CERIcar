@@ -9,7 +9,7 @@ class utilisateurTable {
 		$em = dbconnection::getInstance()->getEntityManager();
 
 		$userRepository = $em->getRepository('utilisateur');
-		$user = $userRepository->findOneBy(array('identifiant' => $login, 'pass' => sha1($pass))); // sha1($pass)
+		$user = $userRepository->findOneBy(array('identifiant' => $login, 'pass' => $pass)); // sha1($pass)
 
 		return $user; 
 	}
