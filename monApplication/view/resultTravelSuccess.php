@@ -2,7 +2,7 @@
 <?php if ($context->depart != NULL && $context->arrivee != NULL && $context->nbpersonne > 0) { ?>
     <?php if ($context->trip != NULL) { ?> 
         <h2>Résultat pour le voyage  <?php echo $context->depart ?> - <?php echo $context->arrivee ?> pour <?php echo $context->nbpersonne ?> personnes</h2>  
-        <!-- <table class="table mt-3">
+        <table class="table mt-3">
             <thead>
                 <tr>
                 <th scope="col">Nombre de place</th>
@@ -25,7 +25,7 @@
                     </tr>
                     <?php } ?>
             </tbody>
-        </table> -->
+        </table>
     <?php }?>
 <?php } ?>
 
