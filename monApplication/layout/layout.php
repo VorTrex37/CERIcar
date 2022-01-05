@@ -15,6 +15,19 @@
 <title>CERIcar</title>
   
 </head>
+<!-- Créer une alerte avec le message et le type souhaité -->
+<script type="text/javascript">
+  var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+  var caca;
+  window.afficheAlert = function(status, message) 
+  {
+    if (message && status) {
+      var wrapper = document.createElement('div')
+      wrapper.innerHTML = '<div class="alert alert-' + status + ' alert-dismissible d-flex align-items-center m-2" role="alert">' + "<div id='info'>" + message + "</div>" + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+      alertPlaceholder.append(wrapper)
+    }
+  }
+</script>
 
 <body>
 <!-- Barre de navigation -->

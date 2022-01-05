@@ -1,7 +1,7 @@
 <!-- Résultat de la recherche de voyage de l'utilisateur -->
-<?php if ($context->depart != NULL && $context->arrivee != NULL) { ?>
+<?php if ($context->depart != NULL && $context->arrivee != NULL && $context->nbpersonne > 0) { ?>
     <?php if ($context->trip != NULL && $context->travel != NULL) { ?> 
-        <h2>Résultat pour le voyage  <?php echo $context->depart ?> - <?php echo $context->arrivee ?></h2>  
+        <h2>Résultat pour le voyage  <?php echo $context->depart ?> - <?php echo $context->arrivee ?> pour <?php echo $context->nnbpersonnebp ?> personnes</h2>  
         <table class="table mt-3">
             <thead>
                 <tr>
@@ -27,6 +27,6 @@
     <?php }?>
 <?php } ?>
 
-<script>
-    afficheAlert('<?php echo $context->message ?>', '<?php echo $context->status ?>');
+<script type="text/javascript">
+    window.afficheAlert("<?php echo $context->status ?>", "<?php echo $context->message ?>")
 </script>

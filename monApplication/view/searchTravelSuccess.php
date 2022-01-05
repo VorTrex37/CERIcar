@@ -20,13 +20,17 @@
                 <?php } ?>
             </select>
         </div>
-        <button id="searchTravel" class="btn btn-primary mx-2 my-3 mt-5" style="padding: 5px 15px;">Rechercher</button>
+        <div class="p-2">
+            <label class="form-label">Nombre de personne(s) :</label>
+            <input type="number" id="nbpersonne" class="form-control w-50" min="1" name="nbpersonne" required/>
+        </div>
     </div>
+    <button id="searchTravel" class="btn btn-primary mb-5 m-2" style="padding: 5px 15px;">Rechercher</button>
 
 <div id="resultTravel"></div>
 
 <script>
 $("#searchTravel").on("click", function() {
-   ajax($("#depart").val(), $("#arrivee").val())
+    resultTravel($("#depart").val(), $("#arrivee").val(), $("#nbpersonne").val())
 });
 </script>
