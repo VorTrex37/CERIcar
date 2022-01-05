@@ -26,7 +26,7 @@ class utilisateurTable {
 
 	public static function createUser($nom, $prenom, $pseudo, $mdp)
 	{
-		$em = dbconnection::getInstance()->getEntityManager()->getConnection();
+		$em = dbconnection::getInstance()->getEntityManager()->getConnection()->createQueryBuilder();
 		
 		$e = new utilisateur();
 		$e->identifiant = $pseudo;
