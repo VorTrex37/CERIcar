@@ -81,15 +81,19 @@ class mainController
 		$context->prenom = $request["prenom"] ?? null;
 		$context->pseudo = $request["pseudo"] ?? null;
 		$context->password = $request["password"] ?? null;
-
-		if ($context->nom && $context->prenom && $context->pseudo && $context->password) {
-				utilisateurTable::createUser($context->nom, $context->prenom, $context->pseudo, $context->password);
-				$context->status = 'sucess';
-				$context->message = "Votre compte a été créé";
-				header('Location: monApplication.php?action=userConnect');
-		} else {
-			$context->status = 'warning';
-			$context->message = "Veuillez remplir tous les champs";
+		
+		if (isset($request["inscription"])) {
+			$context->status = '';
+			$context->message = '';
+			if ($context->nom && $context->prenom && $context->pseudo && $context->password) {
+					$context->status = 'sucess';
+					$context->message = "Votre compte a été créé";
+					utilisateurTable::createUser($context->nom, $context->prenom, $context->pseudo, $context->password);
+					header('Location: monApplication.php?action=userConnect');
+			} else {
+				$context->status = 'warning';
+				$context->message = "Veuillez remplir tous les champs";
+			}
 		}
 
         return context::SUCCESS;
