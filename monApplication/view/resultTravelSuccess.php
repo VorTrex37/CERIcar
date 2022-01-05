@@ -23,17 +23,15 @@
                             <td><?php echo $travel->conducteur->prenom . ' ' .  $travel->conducteur->nom?></td>
                             <td><?php echo $travel->contraintes ?></td>
                             <td><?php echo $travel->trajet->depart . '-' . $travel->trajet->arrivee?></td>
-                        </tr>
                     <?php }  else {?>
-                        <tr>
                             <td><?php echo $travel->nbPlace ?></td>
                             <td><?php echo $travel->heureDepart . ' h'?></td>
                             <td><?php echo $travel->tarif . ' €' ?></td>
                             <td><?php echo $travel->conducteur->prenom . ' ' .  $travel->conducteur->nom?></td>
                             <td><?php echo $travel->contraintes ?></td>
                             <td><?php echo $travel->trajet->depart . '-' . $travel->trajet->arrivee?></td>
-                        </tr>
                     <?php }?>
+                        </tr>
                     </tbody>
                 </table>
             <?php }?>
