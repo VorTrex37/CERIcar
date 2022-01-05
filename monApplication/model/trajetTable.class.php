@@ -46,7 +46,6 @@ class trajetTable {
 			$voyage = $voyageRepository->find($travel['v_id_voyage']);
 			array_push($trip, $voyage);
 		}
-		
 		return $trip;
 	}
 }
