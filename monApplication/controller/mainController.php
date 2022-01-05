@@ -83,9 +83,8 @@ class mainController
 		$context->password = $request["password"] ?? null;
 
 		if ($context->nom && $context->prenom && $context->pseudo && $context->password) {
-				$test =utilisateurTable::createUser($context->nom, $context->prenom, $context->pseudo, $context->password);
-				$context->status = 'success';
-				$context->message = "Votre compte a bien été créé";
+				utilisateurTable::createUser($context->nom, $context->prenom, $context->pseudo, $context->password);
+				header('Location: monApplication.php?action=userInscription');
 		} else {
 			$context->status = 'warning';
 			$context->message = "Veuillez remplir tous les champs";
