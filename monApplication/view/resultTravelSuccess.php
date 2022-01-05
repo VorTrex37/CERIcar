@@ -18,23 +18,29 @@
                 <tr>
                 <?php if (is_array($travel)) { ?>
                     <?php foreach ($travel as $test){?> 
-                        <td><?php echo $test->nbPlace ?></td>
-                        <td><?php echo $test->heureDepart . ' h'?></td>
-                        <td><?php echo $test->tarif . ' €' ?></td>
-                        <td><?php echo $test->conducteur->prenom . ' ' .  $test->conducteur->nom?></td>
-                        <td><?php echo $test->contraintes ?></td>
-                        <td><?php echo $test->trajet->depart . '-' . $test->trajet->arrivee?></td>
+                        <tbody>
+                            <tr>
+                                <td><?php echo $test->nbPlace ?></td>
+                                <td><?php echo $test->heureDepart . ' h'?></td>
+                                <td><?php echo $test->tarif . ' €' ?></td>
+                                <td><?php echo $test->conducteur->prenom . ' ' .  $test->conducteur->nom?></td>
+                                <td><?php echo $test->contraintes ?></td>
+                                <td><?php echo $test->trajet->depart . '-' . $test->trajet->arrivee?></td>
+                            </tr>
+                        </tbody>
                     <?php } ?>
                     <?php }else { ?>
-                            <td><?php echo $travel->nbPlace ?></td>
-                            <td><?php echo $travel->heureDepart . ' h'?></td>
-                            <td><?php echo $travel->tarif . ' €' ?></td>
-                            <td><?php echo $travel->conducteur->prenom . ' ' .  $travel->conducteur->nom?></td>
-                            <td><?php echo $travel->contraintes ?></td>
-                            <td><?php echo $travel->trajet->depart . '-' . $travel->trajet->arrivee?></td>
+                        <tbody>
+                            <tr>
+                                <td><?php echo $travel->nbPlace ?></td>
+                                <td><?php echo $travel->heureDepart . ' h'?></td>
+                                <td><?php echo $travel->tarif . ' €' ?></td>
+                                <td><?php echo $travel->conducteur->prenom . ' ' .  $travel->conducteur->nom?></td>
+                                <td><?php echo $travel->contraintes ?></td>
+                                <td><?php echo $travel->trajet->depart . '-' . $travel->trajet->arrivee?></td>
+                            </tr>
+                        </tbody>
                     <?php } ?> 
-                    </tr>
-                </tbody>
             </table>
         <?php } ?>
     <?php }?>
