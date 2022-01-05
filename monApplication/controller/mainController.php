@@ -84,6 +84,8 @@ class mainController
 
 		if ($context->nom && $context->prenom && $context->pseudo && $context->password) {
 				utilisateurTable::createUser($context->nom, $context->prenom, $context->pseudo, $context->password);
+				$context->status = 'sucess';
+				$context->message = "Votre compte a été créé";
 				header('Location: monApplication.php?action=userConnect');
 		} else {
 			$context->status = 'warning';
