@@ -116,5 +116,13 @@ class mainController
 		return context::SUCCESS;
 	}
 
+	public static function logout($request,$context){
+
+		session_start();
+		session_destroy();
+		
+		return context::SUCCESS;
+	}
+
 
 }
