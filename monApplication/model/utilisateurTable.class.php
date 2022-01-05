@@ -34,8 +34,11 @@ class utilisateurTable {
 		$e->pseudo = $pseudo;
 		$e->mdp = $mdp;
 
-		
-		return $e->save(); 
+		$em->persit($e);
+
+		$em->flush;
+
+		return $e; 
 	}
 }
 
