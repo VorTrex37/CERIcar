@@ -27,7 +27,6 @@
                                 <td><?php echo $test->contraintes ?></td>
                                 <td><?php echo $test->trajet->depart . '-' . $test->trajet->arrivee?></td>
                             </tr>
-                        </tbody>
                     <?php } ?>
                     <?php }else { ?>
                         <tbody>
@@ -39,8 +38,8 @@
                                 <td><?php echo $travel->contraintes ?></td>
                                 <td><?php echo $travel->trajet->depart . '-' . $travel->trajet->arrivee?></td>
                             </tr>
-                        </tbody>
-                    <?php } ?> 
+                        <?php } ?> 
+                    </tbody>
             </table>
         <?php } ?>
     <?php }?>
