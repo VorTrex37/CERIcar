@@ -45,6 +45,9 @@
         <li class="nav-item">
           <a class="nav-link" href="monApplication.php?action=searchTravel">Recherche de voyage</a>
         </li>
+        <li class="nav-text">
+          <a class="nav-link" href="monApplication.php?action=userInscription">Inscription</a>
+        </li>
       </ul>
     </div>
   </div>
