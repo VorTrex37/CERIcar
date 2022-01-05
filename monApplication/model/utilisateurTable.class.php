@@ -34,7 +34,7 @@ class utilisateurTable {
 		$e->prenom = $prenom;
 		$e->nom = $nom;
 
-		$em->persit($e);
+		$em->persist($e);
 
 		$em->flush();
 
