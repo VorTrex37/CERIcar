@@ -84,7 +84,6 @@ class mainController
 
 		if ($context->nom && $context->prenom && $context->pseudo && $context->password) {
 				$test =utilisateurTable::createUser($context->nom, $context->prenom, $context->pseudo, $context->password);
-				var_dump($test);
 				$context->status = 'success';
 				$context->message = "Votre compte a bien été créé";
 		} else {
