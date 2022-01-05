@@ -30,10 +30,10 @@
                             <td><?php echo $travel->conducteur->prenom . ' ' .  $travel->conducteur->nom?></td>
                             <td><?php echo $travel->contraintes ?></td>
                             <td><?php echo $travel->trajet->depart . '-' . $travel->trajet->arrivee?></td>
-                    <?php }?>
                         </tr>
                     </tbody>
                 </table>
+                <?php }?>
             <?php }?>
     <?php }?>
 <?php } ?>
