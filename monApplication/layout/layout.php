@@ -48,7 +48,7 @@
       </ul>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="monApplication.php?action=userInscription">Inscription</a>
+          <a class="nav-link" href="monApplication.php?action=userConnect">Connexion</a>
         </li>
       </ul>
     </div>
