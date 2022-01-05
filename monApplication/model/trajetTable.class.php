@@ -53,9 +53,9 @@ class trajetTable {
 			}
 			if ($voyage->trajet->depart != $start && $voyage->trajet->arrivee == $finish) {
 				array_push($trip, $tmp);
+				$tmp = [];
 			}
 		}
-		var_dump($trip);
 		return $trip;
 	}
 }

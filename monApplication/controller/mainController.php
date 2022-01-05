@@ -54,6 +54,10 @@ class mainController
 
 		if ($context->arrivee && $context->depart && $context->nbpersonne) {
 			$context->trip = trajetTable::getCorrespondance($context->depart, $context->arrivee, $context->nbpersonne);
+			foreach ($$context->trip as $key => $travel) {
+				echo $travel;
+			}
+			
 			if ($context->trip == null) {
 				$context->status = 'info';
 				$context->message = 'Aucun voyage disponible pour ce trajet';
