@@ -99,7 +99,7 @@ class mainController
 
 		$context->pseudo = $request["pseudo"] ?? null;
 		$context->password = $request["password"] ?? null;
-		
+
 		$context->status = 'warning';
 		$context->message = "Veuillez remplir tous les champs";
 
@@ -107,8 +107,8 @@ class mainController
 				$context->status = 'sucess';
 				$context->message = "Connexion réussi";
 				$user = utilisateurTable::getUserByLoginAndPass($context->pseudo, $context->password);
+				$context->user = $user;
 				session_start();
-				var_dump($user);
 				$_SESSION['id'] = $user->id;
 				header('Location: monApplication.php?action=userConnect');
 		}
