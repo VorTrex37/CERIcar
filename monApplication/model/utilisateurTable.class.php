@@ -36,7 +36,7 @@ class utilisateurTable {
 
 		$em->persit($e);
 
-		$em->flush;
+		$em->flush();
 
 		return $e; 
 	}
