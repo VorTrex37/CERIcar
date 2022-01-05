@@ -99,6 +99,9 @@ class mainController
 
 		$context->pseudo = $request["pseudo"] ?? null;
 		$context->password = $request["password"] ?? null;
+		
+		$context->status = 'warning';
+		$context->message = "Veuillez remplir tous les champs";
 
 		if ($context->pseudo && $context->password) {
 				$context->status = 'sucess';
@@ -108,9 +111,6 @@ class mainController
 				var_dump($user);
 				$_SESSION['id'] = $user->id;
 				header('Location: monApplication.php?action=userConnect');
-		} else {
-			$context->status = 'warning';
-			$context->message = "Veuillez remplir tous les champs";
 		}
 		
 		return context::SUCCESS;
