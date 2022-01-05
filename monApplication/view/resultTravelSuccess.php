@@ -14,7 +14,7 @@
                 </tr>
             </thead>
             <?php foreach ($context->trip as $travel){?> 
-                <?php if ($travel->trajet->arrivee == $context->arrivee) {?>
+                <?php if ($travel->trajet->arrivee != $context->arrivee) {?>
                     <tbody>
                             <tr>
                             <td><?php echo $travel->nbPlace ?></td>
