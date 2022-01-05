@@ -55,7 +55,7 @@ class mainController
 		if ($context->arrivee && $context->depart && $context->nbpersonne) {
 			$context->trip = trajetTable::getCorrespondance($context->depart, $context->arrivee, $context->nbpersonne);
 			foreach ($context->trip as $key => $travel) {
-				echo $travel;
+				var_dump($travel);
 			}
 
 			if ($context->trip == null) {
