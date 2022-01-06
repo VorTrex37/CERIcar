@@ -117,6 +117,12 @@ class mainController
 		
 		return context::SUCCESS;
 	}
+
+	public static function userProfil($request,$context){
+		$context->user_id = utilisateurTable::getUserById($_SESSION['id']);
+		return context::SUCCESS;
+	}
+
 	public static function index($request,$context){
 		
 		return context::SUCCESS;
