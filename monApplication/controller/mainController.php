@@ -96,6 +96,7 @@ class mainController
 		$context->prenom = $request["prenom"] ?? null;
 		$context->pseudo = $request["pseudo"] ?? null;
 		$context->password = $request["password"] ?? null;
+		$context->voyage = $request["voyage"] ?? null;
 
 		if ($context->nom && $context->prenom && $context->pseudo && $context->password) {
 				utilisateurTable::createUser($context->nom, $context->prenom, $context->pseudo, $context->password);
@@ -103,6 +104,10 @@ class mainController
 		} else {
 			$context->status = 'warning';
 			$context->message = "Veuillez remplir tous les champs";
+		}
+
+		if ($context->voyage) {
+			var_dump($request["voyage"]);
 		}
 
         return context::SUCCESS;

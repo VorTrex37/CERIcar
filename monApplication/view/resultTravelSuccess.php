@@ -3,7 +3,10 @@
     <?php if ($context->trip != NULL) { ?> 
         <h2>Résultat pour le voyage  <?php echo $context->depart ?> - <?php echo $context->arrivee ?> pour <?php echo $context->nbpersonne ?> personne(s)</h2>  
         <?php foreach ($context->trip as $travel){?> 
-            <button id="tabReserve" class="btn btn-primary mt-4" style="float: right;" value=" <?php $travel ?>">Réserver</button>
+            <form method="POST">
+                <input type="hidden" id="voyage" name="voyage" value="<?php echo htmlentities(serialize($travel)); ?>">
+                <button id="tabReserve" class="btn btn-primary mt-4" style="float: right;"  type="submit">Réserver</button>
+            </form>
             <table class="table mt-2">
                 <thead>
                     <tr>
@@ -46,19 +49,4 @@
 <div id="reserveVoyage"></div>
 <script type="text/javascript">
     window.afficheAlert("<?php echo $context->status ?>", "<?php echo $context->message ?>")
-</script>
-<script>
-$("#tabReserve").on("click", function() {
-    $.ajax({
-            //L'URL de la requête 
-            url: 'dispatcherAjax.php?action=reserveVoyage&voyage=' + $("#tabReserve").val(),
-
-            //La méthode d'envoi (type de requête)
-            method: 'POST',
-        })
-        //Ce code sera exécuté en cas de succès
-        .done(function(response) {
-            header('monApplication.php?action=reserveVoyage')
-        });
-});
 </script>
