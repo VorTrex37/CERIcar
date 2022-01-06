@@ -51,6 +51,7 @@ class mainController
 		$context->depart = $request["depart"] ?? null;	
 		$context->arrivee = $request["arrivee"] ?? null;
 		$context->nbpersonne = $request["nbpersonne"] ?? null;
+		$context->voyage = $request["voyage"] ?? null;
 
 		if ($context->arrivee && $context->depart && $context->nbpersonne) {
 			$context->trip = trajetTable::getCorrespondance($context->depart, $context->arrivee, $context->nbpersonne);
@@ -63,6 +64,10 @@ class mainController
 		if ($context->depart == null || $context->arrivee == null || $context->nbpersonne == null) {
 			$context->status = 'warning';
 			$context->message = "Veuillez saisir une ville de départ, une ville d\'arrivée et un nombre de personne";
+		}
+
+		if ($context->voyage) {
+			var_dump($request["voyage"]);
 		}
 		
         return context::SUCCESS;
@@ -96,7 +101,6 @@ class mainController
 		$context->prenom = $request["prenom"] ?? null;
 		$context->pseudo = $request["pseudo"] ?? null;
 		$context->password = $request["password"] ?? null;
-		$context->voyage = $request["voyage"] ?? null;
 
 		if ($context->nom && $context->prenom && $context->pseudo && $context->password) {
 				utilisateurTable::createUser($context->nom, $context->prenom, $context->pseudo, $context->password);
@@ -106,9 +110,7 @@ class mainController
 			$context->message = "Veuillez remplir tous les champs";
 		}
 
-		if ($context->voyage) {
-			var_dump($request["voyage"]);
-		}
+		
 
         return context::SUCCESS;
 	}
