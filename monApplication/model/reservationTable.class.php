@@ -34,6 +34,7 @@ class reservationTable {
 		$reservationRepository = $em->getRepository('reservation');
 		$reservation = $reservationRepository->findBy(array('voyageur' => $user));
 
+		return $reservation;
 		$emv = dbconnection::getInstance()->getEntityManager() ;
 		$voyageRepository = $emv->getRepository('voyage');
 
@@ -44,7 +45,7 @@ class reservationTable {
 			array_push($trip, $voyage);
 		}
 
-		return $trip; 
+		//return $trip; 
 	}
 }
 
