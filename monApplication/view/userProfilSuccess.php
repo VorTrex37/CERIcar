@@ -6,6 +6,7 @@
   </div>
 </div>
 <h5 class="m-5">Mes réservations</h5>
+<?php var_dump($context->trip); ?> 
 <?php foreach ($context->trip as $travel){ ?> 
     <table class="table mt-5">
         <thead>
