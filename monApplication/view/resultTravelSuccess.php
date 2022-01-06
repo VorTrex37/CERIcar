@@ -49,6 +49,16 @@
 </script>
 <script>
 $("#tabReserve").on("click", function() {
-    reserveVoyage($("#tabReserve").val())
+    $.ajax({
+            //L'URL de la requête 
+            url: 'dispatcherAjax.php?action=reserveVoyage&voyage=' + $("#tabReserve").val(),
+
+            //La méthode d'envoi (type de requête)
+            method: 'POST',
+        })
+        //Ce code sera exécuté en cas de succès
+        .done(function(response) {
+            header('monApplication.php?action=reserveVoyage')
+        });
 });
 </script>
