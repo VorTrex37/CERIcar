@@ -12,6 +12,7 @@
                 <th scope="col">Conducteur</th>
                 <th scope="col">Contraintes</th>
                 <th scope="col">Trajet</th>
+                <th scope="col"><a href="#" class="btn btn-primary">Go somewhere</a></th>
                 </tr>
             </thead>
             <tbody>

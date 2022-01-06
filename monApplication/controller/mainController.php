@@ -80,7 +80,7 @@ class mainController
 				session_start();
 				$_SESSION['id'] = $user->id;
 				$_SESSION['identifiant'] = $user->identifiant;
-				header('Location: monApplication.php?action=userProfil');
+				header('Location: monApplication.php');
 		} else {
 			$context->status = 'warning';
 			$context->message = "Veuillez remplir tous les champs";
