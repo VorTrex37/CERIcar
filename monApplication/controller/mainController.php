@@ -124,6 +124,13 @@ class mainController
 		return context::SUCCESS;
 	}
 
+	public static function reserveVoyage($request,$context){
+
+		$context->voyage = $request["tabReserve"];
+		
+		return context::SUCCESS;
+	}
+
 	public static function index($request,$context){
 		
 		return context::SUCCESS;
