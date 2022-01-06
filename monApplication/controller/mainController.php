@@ -70,7 +70,21 @@ class mainController
 
 	public static function userConnect($request,$context)
 	{
-		
+		$context->pseudo = $request["pseudo"] ?? null;
+		$context->password = $request["password"] ?? null;
+
+		$context->status = 'warning';
+		$context->message = "Veuillez remplir tous les champs";
+
+		if ($context->pseudo && $context->password) {
+				$context->status = 'sucess';
+				$context->message = "Connexion réussi";
+				$user = utilisateurTable::getUserByLoginAndPass($context->pseudo, $context->password);
+				$context->user = $user;
+				session_start();
+				$_SESSION['id'] = $user->id;
+				header('Location: monApplication.php?action=userConnect');
+		}
 
         return context::SUCCESS;
 	}
@@ -96,23 +110,6 @@ class mainController
 	}
 
 	public static function index($request,$context){
-
-		$context->pseudo = $request["pseudo"] ?? null;
-		$context->password = $request["password"] ?? null;
-
-		$context->status = 'warning';
-		$context->message = "Veuillez remplir tous les champs";
-
-		if ($context->pseudo && $context->password) {
-				$context->status = 'sucess';
-				$context->message = "Connexion réussi";
-				var_dump($context->pseudo . '------' . $context->password);
-				$user = utilisateurTable::getUserByLoginAndPass($context->pseudo, $context->password);
-				$context->user = $user;
-				session_start();
-				$_SESSION['id'] = $user->id;
-				header('Location: monApplication.php?action=userConnect');
-		}
 		
 		return context::SUCCESS;
 	}
