@@ -1,7 +1,7 @@
 <!-- Résultat de la recherche de voyage de l'utilisateur -->
 <?php if ($context->depart != NULL && $context->arrivee != NULL && $context->nbpersonne > 0) { ?>
     <?php if ($context->trip != NULL) { ?> 
-        <h2>Résultat pour le voyage  <?php echo $context->depart ?> - <?php echo $context->arrivee ?> pour <?php echo $context->nbpersonne ?> personnes</h2>  
+        <h2>Résultat pour le voyage  <?php echo $context->depart ?> - <?php echo $context->arrivee ?> pour <?php echo $context->nbpersonne ?> personne(s)</h2>  
         <?php foreach ($context->trip as $travel){?> 
         <table class="table mt-5">
             <thead>
