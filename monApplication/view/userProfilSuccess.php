@@ -7,7 +7,7 @@
 </div>
 <h5 class="m-5">Mes réservations</h5>
 <?php foreach ($context->trip as $travel){ ?> 
-    <table class="table mt-5">
+    <table class="table m-5">
         <thead>
             <tr>
             <th scope="col">Nombre de place</th>
