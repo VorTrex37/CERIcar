@@ -23,6 +23,6 @@ function reserveVoyage(voyage) {
         })
         //Ce code sera exécuté en cas de succès
         .done(function(response) {
-            console.log('réservé');
+            header('monApplication.php?action=reserveVoyage')
         });
 }
