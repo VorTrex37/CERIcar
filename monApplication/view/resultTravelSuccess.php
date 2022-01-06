@@ -5,7 +5,7 @@
         <?php foreach ($context->trip as $travel){?> 
             <form method="POST">
                 <input type="hidden" id="voyage" name="voyage" value="<?php echo htmlentities(serialize($travel)); ?>">
-                <button id="tabReserve" class="btn btn-primary mt-4" style="float: right;"  type="submit">Réserver</button>
+                <button id="tabReserve" class="btn btn-primary mt-4" style="float: right;">Réserver</button>
             </form>
             <table class="table mt-2">
                 <thead>
