@@ -45,19 +45,23 @@
           <a class="nav-link" href="monApplication.php?action=searchTravel">Recherche de voyage</a>
         </li>
       </ul>
-      <?php if (isset($_SESSION)) { ?>
-        <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mr-auto">
+      <?php if (!isset($_SESSION)) { ?>
         <li class="nav-item">
           <a class="nav-link" href="monApplication.php?action=userConnect">Connexion</a>
         </li>
-      </ul>
       <?php } else { ?>
-        <ul class="dropdown-menu mr-auto" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="monApplication.php?action=userProfil">Profil</a></li>
-            <li><a class="dropdown-item" href="logout">Déconnexion</a></li>
+        <li class="nav-item dropdown" style="float: right;">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          
+          </a>
+            <ul class="dropdown-menu mr-auto" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="monApplication.php?action=userProfil">Profil</a></li>
+              <li><a class="dropdown-item" href="logout">Déconnexion</a></li>
           </ul>
+        </li>
       <?php } ?>
-      
+      </ul>
     </div>
   </div>
 </nav>
