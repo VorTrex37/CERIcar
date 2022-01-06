@@ -5,9 +5,9 @@
     <h5 class="card-title" style="text-align: center;"><?php echo $context->user->prenom ?> <?php echo $context->user->nom ?> </h5>
   </div>
 </div>
-<h5 class="m-5">Mes réservations</h5>
+<h5 class="m-2">Mes réservations</h5>
 <?php foreach ($context->trip as $travel){ ?> 
-    <table class="table m-5">
+    <table class="table m-2">
         <thead>
             <tr>
             <th scope="col">Nombre de place</th>
