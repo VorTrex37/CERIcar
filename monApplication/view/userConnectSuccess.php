@@ -23,8 +23,6 @@
     </div>
   </div>
 </form>
-<?php var_dump(get_current_user())?>
-
 <script>
   $("#connexion").on("click", function() 
   {
