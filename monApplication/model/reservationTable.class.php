@@ -13,6 +13,39 @@ class reservationTable {
 
 		return $reservation; 
 	}  
+
+	public static function reservationVoyage($voyage, $user)
+	{
+		$em = dbconnection::getInstance()->getEntityManager();
+		
+		$e = new reservation();
+		$e->voyage = $voyage;
+		$e->voyageur = $user;
+
+		$em->persist($e);
+
+		$em->flush();
+	}  
+
+	public static function getVoyageReserve($user)
+	{
+		$em = dbconnection::getInstance()->getEntityManager();
+
+		$reservationRepository = $em->getRepository('reservation');
+		$reservation = $reservationRepository->findBy(array('voyageur' => $user));
+
+		$emv = dbconnection::getInstance()->getEntityManager() ;
+		$voyageRepository = $emv->getRepository('voyage');
+
+		$trip = [];
+
+		foreach ($reservation as $booking) {
+			$voyage = $voyageRepository->find($booking->id);
+			array_push($trip, $voyage);
+		}
+
+		return $trip; 
+	}
 }
 
 ?>
