@@ -45,7 +45,7 @@
           <a class="nav-link" href="monApplication.php?action=searchTravel">Recherche de voyage</a>
         </li>
       </ul>
-      <?php if (!isset($_SESSION['id'])) { ?>
+      <?php if (isset($_SESSION)) { ?>
         <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" href="monApplication.php?action=userConnect">Connexion</a>
