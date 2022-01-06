@@ -18,7 +18,6 @@
 <!-- Créer une alerte avec le message et le type souhaité -->
 <script type="text/javascript">
   var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-  var caca;
   window.afficheAlert = function(status, message) 
   {
     if (message && status) {
@@ -46,17 +45,22 @@
           <a class="nav-link" href="monApplication.php?action=searchTravel">Recherche de voyage</a>
         </li>
       </ul>
-      <ul class="navbar-nav mr-auto">
+      <?php if (!isset($_SESSION['id'])) { ?>
+        <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" href="monApplication.php?action=userConnect">Connexion</a>
         </li>
       </ul>
+      <?php } else { ?>
+        <ul class="dropdown-menu mr-auto" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="monApplication.php?action=userProfil">Profil</a></li>
+            <li><a class="dropdown-item" href="logout">Déconnexion</a></li>
+          </ul>
+      <?php } ?>
+      
     </div>
   </div>
 </nav>
-
-
-
 
 <!-- <h2>Super c'est ton appli ! </h2> -->
 <?php if($context->getSessionAttribute('user_id')): ?>
