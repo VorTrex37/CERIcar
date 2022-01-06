@@ -1,8 +1,8 @@
-<h1 class="mb-2 mt-2">Profil de <?php echo $_SESSION['identifiant'] ?></h1>
-
-Identifiant : <?php echo $context->user->identifiant ?> 
-<br>
-Prénom : <?php echo $context->user->nom ?> 
-<br>
-Nom : <?php echo $context->user->prenom ?> 
-<br>
+<h1 class="m-3">Profil de <?php echo $_SESSION['identifiant'] ?></h1>
+<div class="card" style="width: 18rem; margin: 0 auto;">
+    <img src="images/avatar.png" width="300" height="221">  
+    <div class="card-body">
+    <h5 class="card-title"><?php echo $context->user->prenom ?> <?php echo $context->user->nom ?> </h5>
+  </div>
+</div>
+<h5 class="m-5">Mes réservations</h5>
