@@ -3,7 +3,7 @@
     <?php if ($context->trip != NULL) { ?> 
         <h2>Résultat pour le voyage  <?php echo $context->depart ?> - <?php echo $context->arrivee ?> pour <?php echo $context->nbpersonne ?> personne(s)</h2>  
         <?php foreach ($context->trip as $travel){?> 
-            <a href="#" class="btn btn-primary mt-4">Réserver</a>
+            <a href="#" class="btn btn-primary mt-4" style="float: right;">Réserver</a>
         <table class="table mt-2">
             <thead>
                 <tr>
