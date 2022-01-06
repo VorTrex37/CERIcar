@@ -41,12 +41,11 @@ class reservationTable {
 		$trip = [];
 
 		foreach ($reservation as $booking) {
-			return $booking->voyage->id;
 			$voyage = $voyageRepository->find($booking->voyage->id);
 			array_push($trip, $voyage);
 		}
 
-		//return $trip; 
+		return $trip; 
 	}
 }
 
