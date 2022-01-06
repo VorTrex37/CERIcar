@@ -46,7 +46,7 @@
         </li>
       </ul>
       <ul class="navbar-nav mr-auto">
-      <?php if (isset($_SESSION)) { ?>
+      <?php if (empty($_SESSION['id'])) { ?>
         <li class="nav-item">
           <a class="nav-link" href="monApplication.php?action=userConnect">Connexion</a>
         </li>
