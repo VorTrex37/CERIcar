@@ -78,7 +78,8 @@ class mainController
 				$user = utilisateurTable::getUserByLoginAndPass($context->pseudo, $context->password);
 				$context->user = $user;
 				session_start();
-				$_SESSION = $user;
+				$_SESSION['id'] = $user->id;
+				$_SESSION['identifiant'] = $user->identifiant;
 				header('Location: monApplication.php?action=userProfil');
 		} else {
 			$context->status = 'warning';
