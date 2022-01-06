@@ -106,6 +106,7 @@ class mainController
 		if ($context->pseudo && $context->password) {
 				$context->status = 'sucess';
 				$context->message = "Connexion réussi";
+				var_dump($context->pseudo . '------' . $context->password);
 				$user = utilisateurTable::getUserByLoginAndPass($context->pseudo, $context->password);
 				$context->user = $user;
 				session_start();
