@@ -19,7 +19,7 @@ class reservationTable {
 		$em = dbconnection::getInstance()->getEntityManager();
 		
 		$voyageRepository = $em->getRepository('voyage');
-		$voyageR = $voyageRepository->findBy(array('voyage' => $voyage));
+		$voyageR = $voyageRepository->find($voyage);
 		var_dump($voyageR);
 	
 		$emv = dbconnection::getInstance()->getEntityManager();
