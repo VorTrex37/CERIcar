@@ -20,12 +20,12 @@ class reservationTable {
 		
 		$voyageRepository = $em->getRepository('voyage');
 		$voyageR = $voyageRepository->find($voyage);
-		var_dump($voyageR);
-	
+		
 		$emv = dbconnection::getInstance()->getEntityManager();
-
+		
 		$userRepository = $emv->getRepository('utilisateur');
-		$userR = $userRepository->findBy(array('utilisateur' => $user));
+		$userR = $userRepository->find($user);
+		var_dump($userR);
 		
 		// $e = new reservation();
 		// $e->id = 426;
