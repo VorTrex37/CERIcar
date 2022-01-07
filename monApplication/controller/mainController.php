@@ -110,6 +110,28 @@ class mainController
         return context::SUCCESS;
 	}
 
+	public static function proposeVoyage($request,$context)
+	{
+		$context->depart = $request["depart"] ?? null;
+		$context->arrivee = $request["arrivee"] ?? null;
+		$context->tarif = $request["tarif"] ?? null;
+		$context->nbPlace = $request["nbPlace"] ?? null;
+		$context->heureDepart = $request["heureDepart"] ?? null;
+		$context->contraintes = $request["contraintes"] ?? null;
+
+		if ($context->depart && $context->arrivee && $context->tarif && $context->nbPlace && $context->heureDepart && $context->contraintes) {
+				voyageTable::createVoyage($_SESSION['id'], $context->depart, $context->arrivee, $context->tarif, $context->nbPlace, $context->heureDepart, $context->contraintes);
+				header('Location: monApplication.php?action=proposeVoyage');
+		} else {
+			$context->status = 'warning';
+			$context->message = "Veuillez remplir tous les champs";
+		}
+
+		
+
+        return context::SUCCESS;
+	}
+
 	//Permet à un utilisateur de se déconnecter
 	public static function logout($request,$context){
 

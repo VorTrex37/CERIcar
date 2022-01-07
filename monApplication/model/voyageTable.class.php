@@ -29,5 +29,27 @@ class voyageTable {
 
 		$em->flush();		
 	} 
+
+	public static function createVoyage($conducteur, $depart, $arrivee, $tarif, $nbPlace, $heureDepart, $contraintes)
+	{
+		$em = dbconnection::getInstance()->getEntityManager();
+
+		$trajet= trajetTable::getTrajet($depart, $arrivee);
+		$user = utilisateurTable::getUserById($conducteur);
+		
+		$e = new voyage();
+		$e->conducteur = $user;
+		$e->trajet = $trajet;
+		$e->prenom = $tarif;
+		$e->nom = $nbPlace;
+		$e->nom = $heureDepart;
+		$e->nom = $contraintes;
+
+		$em->persist($e);
+
+		$em->flush();
+
+		return $e; 		
+	} 
 }
 ?>

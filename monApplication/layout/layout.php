@@ -45,6 +45,11 @@
         <li class="nav-item">
           <a class="nav-link" href="monApplication.php?action=searchTravel">Recherche de voyage</a>
         </li>
+        <?php if (!empty($_SESSION['id'])) { ?>
+          <li class="nav-item">
+          <a class="nav-link" href="monApplication.php?action=proposeVoyage">Proposer un voyage</a>
+        </li>
+      <?php } ?>
       </ul>
       <ul class="navbar-nav mr-auto">
       <?php if (empty($_SESSION['id'])) { ?>
