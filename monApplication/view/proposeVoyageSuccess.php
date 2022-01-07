@@ -15,7 +15,7 @@
                 <?php } ?>
               </select>            
             </div>
-            
+
             <div class="form-group mb-4">
               <label class="form-label" for="prenom">Arrivée</label>
               <select id="depart" class="form-select form-select-sm" name="depart" required>
@@ -28,17 +28,17 @@
 
             <div class="form-group mb-4">
               <label class="form-label" for="pseudo">Tarif</label>
-              <input type="text" id="tarif" class="form-control form-control-lg" name="tarif" required/>
+              <input type="number" id="tarif" class="form-control" min="0" name="tarif" value="0" required/>
             </div>
 
-            <div class="p-2">
+            <div class="form-group p-2">
               <label class="form-label">Nombre de place(s) </label>
               <input type="number" id="nbPlace" class="form-control" min="1" name="nbPlace" value="1" required/>
             </div>
 
-            <div class="p-2">
+            <div class="form-group p-2">
               <label class="form-label">Heure de départ</label>
-              <input type="number" id="heureDepart" class="form-control" min="0" name="heureDepart" value="1" required/>
+              <input type="number" id="heureDepart" class="form-control" min="0" name="heureDepart" value="0" required/>
             </div>
 
             <div class="form-group mb-4">
