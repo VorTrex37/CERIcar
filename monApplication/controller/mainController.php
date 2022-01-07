@@ -129,17 +129,15 @@ class mainController
 	public static function reserveVoyage($request,$context){
 
 		$context->voyage = unserialize($request["voyage"]);
-		var_dump($context->voyage);
-		foreach ($context->voyage  as $key => $travel) {
-			if (is_array($travel)) {
-				foreach ($travel as $key => $journey) {
-					reservationTable::reservationVoyage((int)$journey->id, $_SESSION['id']);
-					//voyageTable::updateVoyage((int)$journey->id, $journey->nbPlace);
-				}
-			} else {
-				reservationTable::reservationVoyage((int)$travel->id, $_SESSION['id']);
-				//voyageTable::updateVoyage($travel->id, $travel->nbPlace);
+
+		if (is_array($context->voyage)) {
+			foreach ($context->voyage as $key => $travel) {
+				reservationTable::reservationVoyage($travel->id, $_SESSION['id']);
+				//voyageTable::updateVoyage((int)$journey->id, $journey->nbPlace);
 			}
+		} else {
+			reservationTable::reservationVoyage($context->voyage->id, $_SESSION['id']);
+			//voyageTable::updateVoyage($travel->id, $travel->nbPlace);
 		}
 		
 		return context::SUCCESS;
