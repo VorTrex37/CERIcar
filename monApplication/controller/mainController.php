@@ -133,13 +133,11 @@ class mainController
 		if (is_array($context->voyage)) {
 			foreach ($context->voyage as $key => $travel) {
 				reservationTable::reservationVoyage($travel->id, $_SESSION['id']);
-				//voyageTable::updateVoyage((int)$journey->id, $journey->nbPlace);
+				voyageTable::updateVoyage($travel->id, $travel->nbPlace);
 			}
 		} else {
-			var_dump($context->voyage->id);
-			var_dump($_SESSION['id']);
-			reservationTable::reservationVoyage($context->voyage, $_SESSION['id']);
-			//voyageTable::updateVoyage($travel->id, $travel->nbPlace);
+			reservationTable::reservationVoyage($context->voyage->id, $_SESSION['id']);
+			voyageTable::updateVoyage($context->voyage->id, $context->voyage->nbPlace);
 		}
 		
 		return context::SUCCESS;
