@@ -128,7 +128,7 @@ class mainController
 
 	public static function reserveVoyage($request,$context){
 
-		$context->voyage = unserialize($request["tabReserve"]);
+		$context->voyage = unserialize($request["voyage"]);
 		
 		return context::SUCCESS;
 	}
