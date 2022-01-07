@@ -119,7 +119,7 @@ class mainController
 		$context->heureDepart = $request["heureDepart"] ?? null;
 		$context->contraintes = $request["contraintes"] ?? null;
 		$context->cities = trajetTable::getCities();		
-		var_dump( $context->tarif);	
+		var_dump( $context->depart);	
 
 		if ($context->depart && $context->arrivee && $context->tarif && $context->nbPlace && $context->heureDepart && $context->contraintes) {
 			var_dump('caca');	
