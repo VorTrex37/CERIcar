@@ -136,6 +136,7 @@ class mainController
 				//voyageTable::updateVoyage((int)$journey->id, $journey->nbPlace);
 			}
 		} else {
+			var_dump($context->voyage->id);
 			reservationTable::reservationVoyage($context->voyage->id, $_SESSION['id']);
 			//voyageTable::updateVoyage($travel->id, $travel->nbPlace);
 		}

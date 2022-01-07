@@ -19,7 +19,7 @@ class reservationTable {
 		$em = dbconnection::getInstance()->getEntityManager();
 		
 		$e = new reservation();
-		$e->voyage = (int)$voyage;
+		$e->voyage = $voyage;
 		$e->voyageur = $user;
 
 		$em->persist($e);
