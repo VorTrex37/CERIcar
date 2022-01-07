@@ -46,7 +46,7 @@
 <div id="reserveVoyage"></div>
 
 <script type="text/javascript">
-    window.afficheAlert("<?php echo $context->status ?>", "<?php echo $context->message ?>")
+    afficheAlert("<?php echo $context->status ?>", "<?php echo $context->message ?>")
 </script>
 
 <script type="text/javascript">
