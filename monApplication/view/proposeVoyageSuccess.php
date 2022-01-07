@@ -8,12 +8,22 @@
 
             <div class="form-group mb-4">
               <label class="form-label" for="nom">Départ</label>
-              <input type="text" id="depart" class="form-control form-control-lg" name="depart" required/>
+              <select id="depart" class="form-select form-select-sm w-auto" name="depart" required>
+                <option selected value="">Ouvrir le menu de sélection</option>
+                <?php foreach ($context->cities['depart'] as $cities){?>
+                    <option value='<?=$cities?>'><?=$cities?></option>
+                <?php } ?>
+              </select>            
             </div>
 
             <div class="form-group mb-4">
               <label class="form-label" for="prenom">Arrivée</label>
-              <input type="text" id="arrivee" class="form-control form-control-lg" name="arrivee" required/>
+              <select id="depart" class="form-select form-select-sm w-auto" name="depart" required>
+                <option selected value="">Ouvrir le menu de sélection</option>
+                <?php foreach ($context->cities['depart'] as $cities){?>
+                    <option value='<?=$cities?>'><?=$cities?></option>
+                <?php } ?>
+            </select>
             </div>
 
             <div class="form-group mb-4">
