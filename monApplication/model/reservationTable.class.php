@@ -25,7 +25,7 @@ class reservationTable {
 		$em->persist($e);
 
 		$em->flush();
-	}  
+	}   
 
 	public static function getVoyageReserve($user)
 	{

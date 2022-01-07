@@ -13,6 +13,20 @@ class voyageTable {
 		
 		return $voyage; 
 	}
-}
 
+	public static function updateVoyage($voyage, $nbPlace)
+	{
+		$em = dbconnection::getInstance()->getEntityManager();
+
+		$voyageRepository = $em->getRepository('voyage');
+		$voyageReserve = $voyageRepository->find($voyage);
+		
+		$nbPlace = $nbPlace - 1;
+		
+		$updateVoyage = $em->createQueryBuilder();
+		$updateVoyage->update($voyageRepository, $voyageReserve)
+		->set('nbplace' , $nbPlace);
+
+	} 
+}
 ?>
