@@ -31,12 +31,12 @@
               <input type="number" id="tarif" class="form-control" min="0" name="tarif" value="0" required/>
             </div>
 
-            <div class="form-group p-2">
+            <div class="form-group mb-4">
               <label class="form-label">Nombre de place(s) </label>
               <input type="number" id="nbPlace" class="form-control" min="1" name="nbPlace" value="1" required/>
             </div>
 
-            <div class="form-group p-2">
+            <div class="form-group mb-4">
               <label class="form-label">Heure de départ</label>
               <input type="number" id="heureDepart" class="form-control" min="0" name="heureDepart" value="0" required/>
             </div>
