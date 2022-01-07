@@ -35,6 +35,7 @@ class voyageTable {
 		$em = dbconnection::getInstance()->getEntityManager();
 
 		$trajet= trajetTable::getTrajet($depart, $arrivee);
+		return var_dump($trajet);
 		$user = utilisateurTable::getUserById($conducteur);
 		
 		$e = new voyage();

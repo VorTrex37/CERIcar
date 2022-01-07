@@ -32,11 +32,11 @@ class reservationTable {
 		$e->voyageur = $userR->id;
 
 		
-		var_dump($em->persist($e));
 		$em->persist($e);
-		// $em->flush();
+		
+		$em->flush();
 
-		//return $e;
+		return $e;
 	}   
 
 	public static function getVoyageReserve($user)
