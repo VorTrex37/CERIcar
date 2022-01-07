@@ -26,6 +26,7 @@ function reserveVoyage(voyage) {
         })
         //Ce code sera exécuté en cas de succès
         .done(function(response) {
+            console.log(response);
             $('#reserveVoyage').html(response);
         });
 }
