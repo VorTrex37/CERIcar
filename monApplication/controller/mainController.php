@@ -68,25 +68,19 @@ class mainController
         return context::SUCCESS;
 	}
 
+	//Permet à l'utilisateur de se connecter et de concerver son id
 	public static function userConnect($request,$context)
 	{
-		
-
-        return context::SUCCESS;
-	}
-
-	public static function userInscription($request,$context)
-	{
-		$context->nom = $request["nom"] ?? null;
-		$context->prenom = $request["prenom"] ?? null;
 		$context->pseudo = $request["pseudo"] ?? null;
 		$context->password = $request["password"] ?? null;
 
-		if ($context->nom && $context->prenom && $context->pseudo && $context->password) {
-				$context->status = 'sucess';
-				$context->message = "Votre compte a été créé";
-				utilisateurTable::createUser($context->nom, $context->prenom, $context->pseudo, $context->password);
-				header('Location: monApplication.php?action=userConnect');
+		if ($context->pseudo && $context->password) {
+				$user = utilisateurTable::getUserByLoginAndPass($context->pseudo, $context->password);
+				$context->user = $user;
+				session_start();
+				$_SESSION['id'] = $user->id;
+				$_SESSION['identifiant'] = $user->identifiant;
+				header('Location: monApplication.php');
 		} else {
 			$context->status = 'warning';
 			$context->message = "Veuillez remplir tous les champs";
@@ -95,34 +89,55 @@ class mainController
         return context::SUCCESS;
 	}
 
-	public static function index($request,$context){
-
+	//Permet à l'utilisateur de s'incrire et donc d'ajouter en base un utilisateur
+	public static function userInscription($request,$context)
+	{
+		$context->nom = $request["nom"] ?? null;
+		$context->prenom = $request["prenom"] ?? null;
 		$context->pseudo = $request["pseudo"] ?? null;
 		$context->password = $request["password"] ?? null;
 
-		$context->status = 'warning';
-		$context->message = "Veuillez remplir tous les champs";
-
-		if ($context->pseudo && $context->password) {
-				$context->status = 'sucess';
-				$context->message = "Connexion réussi";
-				$user = utilisateurTable::getUserByLoginAndPass($context->pseudo, $context->password);
-				$context->user = $user;
-				session_start();
-				$_SESSION['id'] = $user->id;
+		if ($context->nom && $context->prenom && $context->pseudo && $context->password) {
+				utilisateurTable::createUser($context->nom, $context->prenom, $context->pseudo, $context->password);
 				header('Location: monApplication.php?action=userConnect');
+		} else {
+			$context->status = 'warning';
+			$context->message = "Veuillez remplir tous les champs";
 		}
+
 		
-		return context::SUCCESS;
+
+        return context::SUCCESS;
 	}
 
+	//Permet à un utilisateur de se déconnecter
 	public static function logout($request,$context){
 
 		session_start();
 		session_destroy();
+		header('Location: monApplication.php');
 		
 		return context::SUCCESS;
 	}
+
+	public static function userProfil($request,$context){
+		$context->user = utilisateurTable::getUserById($_SESSION['id']);
+		$context->trip = reservationTable::getVoyageReserve($_SESSION['id']);
+		return context::SUCCESS;
+	}
+
+	public static function reserveVoyage($request,$context){
+
+		$context->voyage = unserialize($request["tabReserve"]);
+		
+		return context::SUCCESS;
+	}
+
+	public static function index($request,$context){
+		
+		return context::SUCCESS;
+	}
+
 
 
 }
