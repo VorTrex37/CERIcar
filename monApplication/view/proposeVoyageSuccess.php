@@ -28,12 +28,12 @@
 
             <div class="p-2">
               <label class="form-label">Heure de départ</label>
-              <input type="number" id="heureDepart" class="form-control" min="1" name="heureDepart" value="1" required/>
+              <input type="number" id="heureDepart" class="form-control" min="0" name="heureDepart" value="1" required/>
             </div>
 
-            <div class="p-2">
+            <div class="form-group mb-4">
               <label class="form-label">Contraintes</label>
-              <input type="number" id="contraintes" class="form-control" min="1" name="contraintes" value="1" required/>
+              <input type="text" id="contraintes" class="form-control" name="contraintes" required/>
             </div>
             <button class="btn btn-primary btn-lg btn-block m-2" id="voyage" type="submit" name="voyage">Envoyer</button>
           </div>
