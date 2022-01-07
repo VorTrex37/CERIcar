@@ -23,10 +23,12 @@ class reservationTable {
 		
 		$userRepository = $em->getRepository('utilisateur');
 		$user = $userRepository->findBy(array('utilisateur' => $user));
-
+		var_dump($user);
+		var_dump($voyage);
 		
 		$e = new reservation();
 		$e->id = 426;
+		$e->voyage = $voyage->id;
 		$e->voyageur = $user->id;
 
 		$em->persist($e);
