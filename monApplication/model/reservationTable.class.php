@@ -17,7 +17,7 @@ class reservationTable {
 	public static function reservationVoyage($voyage, $user)
 	{
 		$em = dbconnection::getInstance()->getEntityManager();
-		
+		 return var_dump($voyage . '...................' . $user);
 		$e = new reservation();
 		$e->voyage = $voyage;
 		$e->voyageur = $user;
@@ -25,6 +25,8 @@ class reservationTable {
 		$em->persist($e);
 
 		$em->flush();
+
+		return $e;
 	}   
 
 	public static function getVoyageReserve($user)
