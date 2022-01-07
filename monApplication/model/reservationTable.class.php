@@ -26,14 +26,15 @@ class reservationTable {
 
 		
 		$e = new reservation();
-		$e->voyage = $voyage;
-		$e->voyageur = $user;
+		$e->id = 426;
+		$e->voyage = $voyage->id;
+		$e->voyageur = $user->id;
 
 		$em->persist($e);
 
 		$em->flush();
 
-		//return $e;
+		return $e;
 	}   
 
 	public static function getVoyageReserve($user)
