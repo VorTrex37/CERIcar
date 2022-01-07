@@ -17,10 +17,10 @@ class reservationTable {
 	public static function reservationVoyage($voyage, $user)
 	{
 		$em = dbconnection::getInstance()->getEntityManager();
-		
+		 return var_dump($voyage . '...................' . $user);
 		$e = new reservation();
-		$e->voyage = 203;
-		$e->voyageur = 309;
+		$e->voyage = (int)$voyage;
+		$e->voyageur = $user;
 
 		$em->persist($e);
 
