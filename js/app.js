@@ -22,7 +22,7 @@ function reserveVoyage(voyage) {
             //La méthode d'envoi (type de requête)
             method: 'POST',
 
-            data: voyage
+            data: { "voyage": voyage }
         })
         //Ce code sera exécuté en cas de succès
         .done(function(response) {
