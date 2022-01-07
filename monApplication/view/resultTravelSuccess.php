@@ -11,7 +11,7 @@
                 <th scope="col">Nombre de place</th>
                 <th scope="col">Heure de départ</th>
                 <th scope="col">Tarif</th>
-                <th scope="col">Conducteur</th>q
+                <th scope="col">Conducteur</th>
                 <th scope="col">Contraintes</th>
                 <th scope="col">Trajet</th>
                 </tr>
