@@ -35,7 +35,7 @@
               <label class="form-label">Contraintes</label>
               <input type="number" id="contraintes" class="form-control" min="1" name="contraintes" value="1" required/>
             </div>
-            <button class="btn btn-primary btn-lg btn-block" id="voyage" type="submit" name="voyage">Envoyer</button>
+            <button class="btn btn-primary btn-lg btn-block m-2" id="voyage" type="submit" name="voyage">Envoyer</button>
           </div>
         </div>
       </div>
