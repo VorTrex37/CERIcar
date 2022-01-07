@@ -23,8 +23,7 @@ class reservationTable {
 		
 		$userRepository = $em->getRepository('utilisateur');
 		$user = $userRepository->findBy(array('utilisateur' => $user));
-		var_dump($user);
-		var_dump($voyage);
+		 return var_dump($user . '+++++++++++++++' . $voyage);
 		
 		$e = new reservation();
 		$e->id = 426;
@@ -35,7 +34,7 @@ class reservationTable {
 
 		$em->flush();
 
-		return $e;
+		//return $e;
 	}   
 
 	public static function getVoyageReserve($user)
