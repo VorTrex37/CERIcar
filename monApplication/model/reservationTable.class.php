@@ -25,14 +25,14 @@ class reservationTable {
 		
 		$userRepository = $emv->getRepository('utilisateur');
 		$userR = $userRepository->find($user);
-		var_dump($userR);
 		
-		// $e = new reservation();
-		// $e->id = 426;
-		// $e->voyage = $voyage->id;
-		// $e->voyageur = $user->id;
+		$e = new reservation();
+		$e->id = 426;
+		$e->voyage = $voyageR->id;
+		$e->voyageur = $userR->id;
 
-		// $em->persist($e);
+		var_dump($e);
+		//$em->persist($e);
 
 		// $em->flush();
 
