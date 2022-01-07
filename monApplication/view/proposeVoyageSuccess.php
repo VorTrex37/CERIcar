@@ -23,17 +23,17 @@
 
             <div class="p-2">
               <label class="form-label">Nombre de place(s) </label>
-              <input type="number" id="nbPlace" class="form-control w-50" min="1" name="nbPlace" value="1" required/>
+              <input type="number" id="nbPlace" class="form-control" min="1" name="nbPlace" value="1" required/>
             </div>
 
             <div class="p-2">
               <label class="form-label">Heure de départ</label>
-              <input type="number" id="heureDepart" class="form-control w-50" min="1" name="heureDepart" value="1" required/>
+              <input type="number" id="heureDepart" class="form-control" min="1" name="heureDepart" value="1" required/>
             </div>
 
             <div class="p-2">
               <label class="form-label">Contraintes</label>
-              <input type="number" id="contraintes" class="form-control w-50" min="1" name="contraintes" value="1" required/>
+              <input type="number" id="contraintes" class="form-control" min="1" name="contraintes" value="1" required/>
             </div>
             <button class="btn btn-primary btn-lg btn-block" id="voyage" type="submit" name="voyage">Envoyer</button>
           </div>
