@@ -49,9 +49,3 @@
 <script type="text/javascript">
     window.afficheAlert("<?php echo $context->status ?>", "<?php echo $context->message ?>")
 </script>
-
-<script>
-$("#tabReserve").on("click", function() {
-    reserveVoyage($("#voyage").val())
-});
-</script>
