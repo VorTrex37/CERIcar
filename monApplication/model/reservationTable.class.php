@@ -31,9 +31,9 @@ class reservationTable {
 		$e->voyage = $voyageR->id;
 		$e->voyageur = $userR->id;
 
-		var_dump($e);
-		//$em->persist($e);
-
+		
+		var_dump($em->persist($e));
+		$em->persist($e);
 		// $em->flush();
 
 		//return $e;
