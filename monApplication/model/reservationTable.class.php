@@ -20,7 +20,7 @@ class reservationTable {
 		
 		$e = new reservation();
 		$e->voyageur = $user;
-		$e->voyage = $voyage;
+		$e->voyage = $voyage->id;
 
 		$em->persist($e);
 
