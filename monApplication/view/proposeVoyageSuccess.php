@@ -7,23 +7,33 @@
             <h3 class="mb-5 text-center">Proposer un Voyage</h3>
 
             <div class="form-group mb-4">
-              <label class="form-label" for="nom">Nom</label>
-              <input type="text" id="nom" class="form-control form-control-lg" name="nom" required/>
+              <label class="form-label" for="nom">Départ</label>
+              <input type="text" id="depart" class="form-control form-control-lg" name="depart" required/>
             </div>
 
             <div class="form-group mb-4">
-              <label class="form-label" for="prenom">Prénom</label>
-              <input type="text" id="prenom" class="form-control form-control-lg" name="prenom" required/>
+              <label class="form-label" for="prenom">Arrivée</label>
+              <input type="text" id="arrivee" class="form-control form-control-lg" name="arrivee" required/>
             </div>
 
             <div class="form-group mb-4">
-              <label class="form-label" for="pseudo">Pseudo</label>
-              <input type="text" id="pseudo" class="form-control form-control-lg" name="pseudo" required/>
+              <label class="form-label" for="pseudo">Tarif</label>
+              <input type="text" id="tarif" class="form-control form-control-lg" name="tarif" required/>
             </div>
 
-            <div class="form-group mb-4">
-              <label class="form-label" for="password">Mot de passe</label>
-              <input type="password" id="password" class="form-control form-control-lg" name="password" required/>
+            <div class="p-2">
+              <label class="form-label">Nombre de place(s) </label>
+              <input type="number" id="nbPlace" class="form-control w-50" min="1" name="nbPlace" value="1" required/>
+            </div>
+
+            <div class="p-2">
+              <label class="form-label">Heure de départ</label>
+              <input type="number" id="heureDepart" class="form-control w-50" min="1" name="heureDepart" value="1" required/>
+            </div>
+
+            <div class="p-2">
+              <label class="form-label">Contraintes</label>
+              <input type="number" id="contraintes" class="form-control w-50" min="1" name="contraintes" value="1" required/>
             </div>
             <button class="btn btn-primary btn-lg btn-block" id="voyage" type="submit" name="voyage">Envoyer</button>
           </div>
