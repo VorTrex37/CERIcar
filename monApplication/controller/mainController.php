@@ -118,8 +118,9 @@ class mainController
 		$context->nbPlace = $request["nbPlace"] ?? null;
 		$context->heureDepart = $request["heureDepart"] ?? null;
 		$context->contraintes = $request["contraintes"] ?? null;
-
+		
 		if ($context->depart && $context->arrivee && $context->tarif && $context->nbPlace && $context->heureDepart && $context->contraintes) {
+				var_dump($context->depart , $context->arrivee, $context->tarif, $context->nbPlace, $context->heureDepart, $context->contraintes );
 				voyageTable::createVoyage($_SESSION['id'], $context->depart, $context->arrivee, $context->tarif, $context->nbPlace, $context->heureDepart, $context->contraintes);
 				header('Location: monApplication.php?action=proposeVoyage');
 		} else {
