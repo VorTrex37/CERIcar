@@ -51,7 +51,6 @@ class mainController
 		$context->depart = $request["depart"] ?? null;	
 		$context->arrivee = $request["arrivee"] ?? null;
 		$context->nbpersonne = $request["nbpersonne"] ?? null;
-		$context->voyage = $request["voyage"] ?? null;
 
 		if ($context->arrivee && $context->depart && $context->nbpersonne) {
 			$context->trip = trajetTable::getCorrespondance($context->depart, $context->arrivee, $context->nbpersonne);
@@ -64,10 +63,6 @@ class mainController
 		if ($context->depart == null || $context->arrivee == null || $context->nbpersonne == null) {
 			$context->status = 'warning';
 			$context->message = "Veuillez saisir une ville de départ, une ville d\'arrivée et un nombre de personne";
-		}
-
-		if ($context->voyage) {
-			var_dump($request["voyage"]);
 		}
 		
         return context::SUCCESS;
@@ -133,7 +128,7 @@ class mainController
 
 	public static function reserveVoyage($request,$context){
 
-		$context->voyage = $request["tabReserve"];
+		$context->voyage = unserialize($request["tabReserve"]);
 		
 		return context::SUCCESS;
 	}

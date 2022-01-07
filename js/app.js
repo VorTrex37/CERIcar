@@ -12,3 +12,19 @@ function resultTravel(depart, arrivee, nbpersonne) {
             $('#resultTravel').html(response);
         });
 }
+
+function reserveVoyage(voyage) {
+    $.ajax({
+            //L'URL de la requête 
+            url: 'dispatcherAjax.php?action=reserveVoyage',
+
+            //La méthode d'envoi (type de requête)
+            method: 'POST',
+
+            data: voyage
+        })
+        //Ce code sera exécuté en cas de succès
+        .done(function(response) {
+            $('#reserveVoyage').html(response);
+        });
+}
