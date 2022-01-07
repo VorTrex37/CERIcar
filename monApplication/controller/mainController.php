@@ -129,7 +129,7 @@ class mainController
 	public static function reserveVoyage($request,$context){
 
 		$context->voyage = unserialize($request["voyage"]);
-
+		var_dump($context->voyage);
 		foreach ($context->voyage  as $key => $travel) {
 			if (is_array($travel)) {
 				foreach ($travel as $key => $journey) {
@@ -137,7 +137,6 @@ class mainController
 					//voyageTable::updateVoyage((int)$journey->id, $journey->nbPlace);
 				}
 			} else {
-				return var_dump($travel);
 				reservationTable::reservationVoyage((int)$travel->id, $_SESSION['id']);
 				//voyageTable::updateVoyage($travel->id, $travel->nbPlace);
 			}
