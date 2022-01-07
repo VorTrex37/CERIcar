@@ -19,13 +19,13 @@ class reservationTable {
 		$em = dbconnection::getInstance()->getEntityManager();
 
 		$voyageRepository = $em->getRepository('voyage');
-		$voyage = $voyageRepository->findBy(array('voyage' => $voyage));
+		$voyageR = $voyageRepository->findBy(array('voyage' => $voyage));
 	
 		$emv = dbconnection::getInstance()->getEntityManager();
 
 		$userRepository = $emv->getRepository('utilisateur');
-		$user = $userRepository->findBy(array('utilisateur' => $user));
-		return var_dump($user . '+++++++++++++++' . $voyage);
+		$userR = $userRepository->findBy(array('utilisateur' => $user));
+		return var_dump($voyageR . '+++++++++++++++' . $userR);
 		
 		// $e = new reservation();
 		// $e->id = 426;
