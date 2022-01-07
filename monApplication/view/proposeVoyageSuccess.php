@@ -8,7 +8,7 @@
 
             <div class="form-group mb-4">
               <label class="form-label" for="nom">Départ</label>
-              <select id="depart" class="form-select form-select-sm w-auto" name="depart" required>
+              <select id="depart" class="form-select form-select-sm" name="depart" required>
                 <option selected value="">Ouvrir le menu de sélection</option>
                 <?php foreach ($context->cities['depart'] as $cities){?>
                     <option value='<?=$cities?>'><?=$cities?></option>
@@ -18,7 +18,7 @@
 
             <div class="form-group mb-4">
               <label class="form-label" for="prenom">Arrivée</label>
-              <select id="depart" class="form-select form-select-sm w-auto" name="depart" required>
+              <select id="depart" class="form-select form-select-sm" name="depart" required>
                 <option selected value="">Ouvrir le menu de sélection</option>
                 <?php foreach ($context->cities['depart'] as $cities){?>
                     <option value='<?=$cities?>'><?=$cities?></option>
