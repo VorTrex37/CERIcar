@@ -24,9 +24,13 @@ class voyageTable {
 		$nbPlace = $nbPlace - 1;
 
 		$updateVoyage = $em->createQueryBuilder();
-		$updateVoyage->update($voyageRepository, $voyageReserve)
-		->set('nbplace' , $nbPlace)
-		->setParameter('nbplace',$nbPlace);
+		$updateVoyage->update('voyage')
+		->where('id', $voyage)
+		->set('nbplace' , $nbPlace);
+
+		$query = $updateVoyage->getQuery();
+
+		return $query->getDQL();
 	} 
 }
 ?>
