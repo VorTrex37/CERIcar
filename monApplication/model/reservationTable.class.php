@@ -17,6 +17,7 @@ class reservationTable {
 	public static function reservationVoyage($voyage, $user)
 	{
 		$em = dbconnection::getInstance()->getEntityManager();
+		var_dump($voyage . '+++++++++++++++' . $user);
 
 		$voyageRepository = $em->getRepository('voyage');
 		$voyageR = $voyageRepository->findBy(array('voyage' => $voyage));
@@ -25,7 +26,6 @@ class reservationTable {
 
 		$userRepository = $emv->getRepository('utilisateur');
 		$userR = $userRepository->findBy(array('utilisateur' => $user));
-		return var_dump($voyageR . '+++++++++++++++' . $userR);
 		
 		// $e = new reservation();
 		// $e->id = 426;
