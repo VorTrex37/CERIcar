@@ -24,7 +24,7 @@ class voyageTable {
 		$nbPlace = $nbPlace - 1;
 
 		$updateVoyage = $em->createQueryBuilder();
-		$updateVoyage->update($voyageRepository)
+		$updateVoyage->update(voyage::class)
 		->where('id', $voyage)
 		->set('nbplace' , $nbPlace);
 
