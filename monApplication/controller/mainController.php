@@ -121,7 +121,7 @@ class mainController
 		
 		if ($context->depart && $context->arrivee && $context->tarif && $context->nbPlace && $context->heureDepart && $context->contraintes) {
 				voyageTable::createVoyage($_SESSION['id'], $context->depart, $context->arrivee, $context->tarif, $context->nbPlace, $context->heureDepart, $context->contraintes);
-				header('Location: monApplication.php?action=proposeVoyage');
+				//header('Location: monApplication.php?action=proposeVoyage');
 		} else {
 			$context->status = 'warning';
 			$context->message = "Veuillez remplir tous les champs";
