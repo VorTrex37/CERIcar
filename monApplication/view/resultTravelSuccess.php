@@ -3,7 +3,6 @@
     <?php if ($context->trip != NULL) { ?> 
         <h2>Résultat pour le voyage  <?php echo $context->depart ?> - <?php echo $context->arrivee ?> pour <?php echo $context->nbpersonne ?> personne(s)</h2>  
         <?php foreach ($context->trip as $travel){?> 
-            <?php var_dump(htmlentities(serialize($travel))); ?>
             <input type='hidden' name='voyage' value="<?php echo htmlentities(serialize($travel)); ?>"/>
             <a  id="tabReserve" class="btn btn-primary mt-4" style="float: right;">Réserver</a>
         <table class="table mt-2">
@@ -51,6 +50,7 @@
 </script>
 
 <script type="text/javascript">
+    console.log($("#voyage").val());
 $("#tabReserve").on("click", function() {
     reserveVoyage($("#voyage").val())
 });
