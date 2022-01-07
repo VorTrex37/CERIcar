@@ -15,6 +15,19 @@
 <title>CERIcar</title>
   
 </head>
+<!-- Créer une alerte avec le message et le type souhaité -->
+<script type="text/javascript">
+  var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+
+  window.afficheAlert = function(status, message) 
+  {
+    if (message && status) {
+      var wrapper = document.createElement('div')
+      wrapper.innerHTML = '<div class="alert alert-' + status + ' alert-dismissible d-flex align-items-center m-2" role="alert">' + "<div id='info'>" + message + "</div>" + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+      alertPlaceholder.append(wrapper)
+    }
+  }
+</script>
 
 <body>
 <!-- Barre de navigation -->
@@ -24,7 +37,7 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="monApplication.php">Home</a>
@@ -33,12 +46,26 @@
           <a class="nav-link" href="monApplication.php?action=searchTravel">Recherche de voyage</a>
         </li>
       </ul>
+      <ul class="navbar-nav mr-auto">
+      <?php if (empty($_SESSION['id'])) { ?>
+        <li class="nav-item">
+          <a class="nav-link" href="monApplication.php?action=userConnect">Connexion</a>
+        </li>
+      <?php } else { ?>
+        <li class="nav-item dropdown" style="float: right;">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <?php echo $_SESSION['identifiant']?>
+          </a>
+            <ul class="dropdown-menu mr-auto" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="monApplication.php?action=userProfil">Profil</a></li>
+              <li><a class="dropdown-item" href="monApplication.php?action=logout">Déconnexion</a></li>
+          </ul>
+        </li>
+      <?php } ?>
+      </ul>
     </div>
   </div>
 </nav>
-
-
-
 
 <!-- <h2>Super c'est ton appli ! </h2> -->
 <?php if($context->getSessionAttribute('user_id')): ?>
