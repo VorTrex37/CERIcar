@@ -3,8 +3,8 @@
     <?php if ($context->trip != NULL) { ?> 
         <h2>Résultat pour le voyage  <?php echo $context->depart ?> - <?php echo $context->arrivee ?> pour <?php echo $context->nbpersonne ?> personne(s)</h2>  
         <?php foreach ($context->trip as $key => $travel){?> 
-            <input type='hidden' id="voyage<?php  echo $key?>" name="voyage<?php  echo $key?>" onclick="reserveVoyage('<?php echo htmlentities(serialize($travel));?>')"/>
-            <button  id="tabReserve" class="btn btn-primary mt-4" style="float: right;">Réserver</button>
+            <input type='hidden' id="voyage<?php  echo $key?>" name="voyage<?php  echo $key?>"/>
+            <a  id="tabReserve" class="btn btn-primary mt-4" style="float: right;" onclick="reserveVoyage('<?php echo htmlentities(serialize($travel));?>')">Réserver</a>
         <table class="table mt-2">
             <thead>
                 <tr>
