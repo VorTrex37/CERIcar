@@ -14,6 +14,7 @@ function resultTravel(depart, arrivee, nbpersonne) {
 }
 
 function reserveVoyage(voyage) {
+    console.log(voyage);
     $.ajax({
             //L'URL de la requête 
             url: 'dispatcherAjax.php?action=reserveVoyage',
@@ -24,7 +25,8 @@ function reserveVoyage(voyage) {
             data: voyage
         })
         //Ce code sera exécuté en cas de succès
-        .done(function(response) {
+        .done(function(response, voyage) {
+            alert("Data: " + voyage);
             $('#reserveVoyage').html(response);
         });
 }

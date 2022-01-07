@@ -50,5 +50,5 @@
 </script>
 
 <script type="text/javascript">
-    console.log($("#voyage0").val());
+    // console.log($("#voyage0").val());
 </script>
