@@ -19,9 +19,9 @@ class reservationTable {
 		$em = dbconnection::getInstance()->getEntityManager();
 		
 		$e = new reservation();
-		return var_dump($e);
 		$e->voyageur = $user;
 		$e->voyage = $voyage;
+		return var_dump($e);
 
 		$em->persist($e);
 
