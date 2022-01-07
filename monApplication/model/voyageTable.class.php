@@ -22,11 +22,11 @@ class voyageTable {
 		$voyageReserve = $voyageRepository->find($voyage);
 		
 		$nbPlace = $nbPlace - 1;
-		
+
 		$updateVoyage = $em->createQueryBuilder();
 		$updateVoyage->update($voyageRepository, $voyageReserve)
-		->set('nbplace' , $nbPlace);
-
+		->set('nbplace' , $nbPlace)
+		->setParameter('nbplace',$nbPlace);
 	} 
 }
 ?>
