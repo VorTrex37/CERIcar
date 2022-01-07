@@ -17,10 +17,17 @@ class reservationTable {
 	public static function reservationVoyage($voyage, $user)
 	{
 		$em = dbconnection::getInstance()->getEntityManager();
+
+		$voyageRepository = $em->getRepository('voyage');
+		$voyage = $voyageRepository->findBy(array('voyage' => $voyage));
+		
+		$userRepository = $em->getRepository('utilisateur');
+		$user = $userRepository->findBy(array('utilisateur' => $user));
+
 		
 		$e = new reservation();
-		$e->voyageur = (string)$user;
-		$e->voyage = (string)$voyage;
+		$e->voyage = $voyage;
+		$e->voyageur = $user;
 
 		$em->persist($e);
 
