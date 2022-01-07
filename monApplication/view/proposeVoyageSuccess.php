@@ -18,9 +18,9 @@
 
             <div class="form-group mb-4">
               <label class="form-label" for="prenom">Arrivée</label>
-              <select id="depart" class="form-select form-select-sm" name="depart" required>
+              <select id="arrivee" class="form-select form-select-sm" name="arrivee" required>
                 <option selected value="">Ouvrir le menu de sélection</option>
-                <?php foreach ($context->cities['depart'] as $cities){?>
+                <?php foreach ($context->cities['arrivee'] as $cities){?>
                     <option value='<?=$cities?>'><?=$cities?></option>
                 <?php } ?>
             </select>
