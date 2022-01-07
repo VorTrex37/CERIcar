@@ -132,11 +132,11 @@ class mainController
 
 		if (is_array($context->voyage)) {
 			foreach ($context->voyage as $key => $travel) {
-				reservationTable::reservationVoyage($travel->id, $_SESSION['id']);
+				//reservationTable::reservationVoyage($travel->id, $_SESSION['id']);
 				voyageTable::updateVoyage($travel->id, $travel->nbPlace);
 			}
 		} else {
-			reservationTable::reservationVoyage($context->voyage->id, $_SESSION['id']);
+			//reservationTable::reservationVoyage($context->voyage->id, $_SESSION['id']);
 			voyageTable::updateVoyage($context->voyage->id, $context->voyage->nbPlace);
 		}
 		
