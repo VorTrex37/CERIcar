@@ -20,19 +20,21 @@ class reservationTable {
 
 		$voyageRepository = $em->getRepository('voyage');
 		$voyage = $voyageRepository->findBy(array('voyage' => $voyage));
-		
-		$userRepository = $em->getRepository('utilisateur');
+	
+		$emv = dbconnection::getInstance()->getEntityManager();
+
+		$userRepository = $emv->getRepository('utilisateur');
 		$user = $userRepository->findBy(array('utilisateur' => $user));
-		 return var_dump($user . '+++++++++++++++' . $voyage);
+		return var_dump($user . '+++++++++++++++' . $voyage);
 		
-		$e = new reservation();
-		$e->id = 426;
-		$e->voyage = $voyage->id;
-		$e->voyageur = $user->id;
+		// $e = new reservation();
+		// $e->id = 426;
+		// $e->voyage = $voyage->id;
+		// $e->voyageur = $user->id;
 
-		$em->persist($e);
+		// $em->persist($e);
 
-		$em->flush();
+		// $em->flush();
 
 		//return $e;
 	}   
