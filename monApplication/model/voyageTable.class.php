@@ -21,7 +21,7 @@ class voyageTable {
 		$voyageRepository = $em->getRepository('voyage');
 		$voyageReserve = $voyageRepository->find($voyage);
 		
-		$nbPlace = $nbPlace - 1;
+		$nbPlace = $nbPlace + 1;
 
 		$voyageReserve->nbPlace = $nbPlace;
 

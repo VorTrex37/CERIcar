@@ -19,6 +19,7 @@ class reservationTable {
 		$em = dbconnection::getInstance()->getEntityManager();
 		
 		$e = new reservation();
+		return var_dump($e);
 		$e->voyageur = $user;
 		$e->voyage = $voyage;
 
@@ -26,7 +27,7 @@ class reservationTable {
 
 		$em->flush();
 
-		return $e;
+		//return $e;
 	}   
 
 	public static function getVoyageReserve($user)
