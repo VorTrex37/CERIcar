@@ -7,6 +7,11 @@
                 <input type='hidden' id="voyage<?php  echo $key?>" name="voyage<?php  echo $key?>" value="<?php echo htmlentities(serialize($travel));?>"/>
                 <a  id="tabReserve" class="btn btn-primary mt-4" style="float: right;" onclick='reserveVoyage($("#voyage<?php  echo $key?>").val())'>Réserver</a>
             <?php } ?>
+            <?php if (empty($_SESSION['id'])) { ?>
+                <table class="table mt-4">
+            <?php } else { ?>
+                <table class="table mt-2">
+            <?php  }?>
         <table class="table mt-2">
             <thead>
                 <tr>
