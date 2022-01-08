@@ -68,24 +68,8 @@ class mainController
         return context::SUCCESS;
 	}
 
-	//Permet à l'utilisateur de se connecter et de concerver son id
 	public static function userConnect($request,$context)
 	{
-		$context->pseudo = $request["pseudo"] ?? null;
-		$context->password = $request["password"] ?? null;
-
-		if ($context->pseudo && $context->password) {
-				$user = utilisateurTable::getUserByLoginAndPass($context->pseudo, $context->password);
-				$context->user = $user;
-				session_start();
-				$_SESSION['id'] = $user->id;
-				$_SESSION['identifiant'] = $user->identifiant;
-				header('Location: monApplication.php');
-		} else {
-			$context->status = 'warning';
-			$context->message = "Veuillez remplir tous les champs";
-		}
-
         return context::SUCCESS;
 	}
 
@@ -188,6 +172,32 @@ class mainController
 			$context->message = "Veuillez saisir tous les champs";
 		}		
 
+		return context::SUCCESS;
+	}
+
+	
+	//Permet à l'utilisateur de se connecter et de concerver son id
+	public static function alertConnexion($request,$context){
+
+		$context->pseudo = $request["pseudo"] ?? null;
+		$context->password = $request["password"] ?? null;
+		var_dump($context->pseudo);
+		if ($context->pseudo && $context->password) {
+				$user = utilisateurTable::getUserByLoginAndPass($context->pseudo, $context->password);
+				if (isset($user)) {
+					$context->status = 'info';
+					$context->message = "Vous n'avez pas encore de compte CERIcar";
+				}
+				$context->status = 'success';
+				$context->message = "Connexion réussi";
+				$context->user = $user;
+				session_start();
+				$_SESSION['id'] = $user->id;
+				$_SESSION['identifiant'] = $user->identifiant;
+		} else {
+			$context->status = 'warning';
+			$context->message = "Veuillez remplir tous les champs";
+		}
 		return context::SUCCESS;
 	}
 

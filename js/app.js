@@ -32,7 +32,6 @@ function reserveVoyage(voyage) {
 }
 
 function alertInscription(nom, prenom, pseudo, password, confpassword) {
-    console.log('csc');
     $.ajax({
             //L'URL de la requête 
             url: 'dispatcherAjax.php?action=alertInscription',
@@ -45,6 +44,22 @@ function alertInscription(nom, prenom, pseudo, password, confpassword) {
         //Ce code sera exécuté en cas de succès
         .done(function(response) {
             $('#alertInscription').html(response);
+        });
+}
+
+function alertConnexion(pseudo, password) {
+    $.ajax({
+            //L'URL de la requête 
+            url: 'dispatcherAjax.php?action=alertConnexion',
+
+            //La méthode d'envoi (type de requête)
+            method: 'POST',
+
+            data: { "pseudo": pseudo, "password": password }
+        })
+        //Ce code sera exécuté en cas de succès
+        .done(function(response) {
+            $('#alertConnexion').html(response);
         });
 }
 
