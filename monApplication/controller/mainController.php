@@ -149,7 +149,7 @@ class mainController
 				}
 			}
 			$context->status = 'success';
-			$context->message = "Le ou les voyage(s) ont été réservé avec succès";
+			$context->message = "Les voyage ont été réservé avec succès";
 		} else {
 			if ($context->voyage->nbPlace <  $context->nbPlace) {
 				$context->status = 'warning';
