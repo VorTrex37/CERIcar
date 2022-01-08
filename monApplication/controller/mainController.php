@@ -184,8 +184,8 @@ class mainController
 		if ($context->pseudo && $context->password) {
 				$user = utilisateurTable::getUserByLoginAndPass($context->pseudo, $context->password);
 				if (empty($user)) {
-					$context->status = 'info';
-					$context->message = "Vous n'avez pas encore de compte CERIcar";
+					$context->status = 'danger';
+					$context->message = "Mot de passe ou identifiant incorrect !";
 				} else {
 					$context->status = 'success';
 					$context->message = "Connexion réussi";
