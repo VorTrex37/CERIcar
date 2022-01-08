@@ -190,7 +190,6 @@ class mainController
 					$context->status = 'success';
 					$context->message = "Connexion réussi";
 					$context->user = $user;
-					session_start();
 					$_SESSION['id'] = $user->id;
 					$_SESSION['identifiant'] = $user->identifiant;
 				}
