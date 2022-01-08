@@ -35,10 +35,12 @@ function alertInscription(nom, prenom, pseudo, password, confpassword) {
     console.log('csc');
     $.ajax({
             //L'URL de la requête 
-            url: 'dispatcherAjax.php?action=alertInscription&nom=' + nom + '&prenom=' + prenom + '&pseudo=' + pseudo + '&password=' + password + '&confpassword=' + confpassword,
+            url: 'dispatcherAjax.php?action=alertInscription',
 
             //La méthode d'envoi (type de requête)
-            method: 'GET',
+            method: 'POST',
+
+            data: { "nom": nom, "prenom": prenom, "pseudo": pseudo, "password": password, "confpassword": confpassword, }
         })
         //Ce code sera exécuté en cas de succès
         .done(function(response) {
