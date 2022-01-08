@@ -24,7 +24,7 @@
             <label class="form-label">Nombre de personne(s) :</label>
             <input type="number" id="nbpersonne" class="form-control w-50" min="1" name="nbpersonne" value="1" required/>
         </div>
-        <div class="form-check">
+        <div class="p-2">
             <input class="form-check-input" type="checkbox" value="true" id="correspondance" name="correspondance">
             <label class="form-check-label" for="correspondance">Correspondance</label>
         </div>
