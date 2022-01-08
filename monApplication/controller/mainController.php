@@ -51,12 +51,9 @@ class mainController
 		$context->depart = $request["depart"] ?? null;	
 		$context->arrivee = $request["arrivee"] ?? null;
 		$context->nbpersonne = $request["nbpersonne"] ?? null;
-		$context->correspondance = $request["correspondance"] ?? null;
-
-		var_dump($context->correspondance);
 
 		if ($context->arrivee && $context->depart && $context->nbpersonne) {
-			//$context->trip = trajetTable::getCorrespondance($context->depart, $context->arrivee, $context->nbpersonne);
+			$context->trip = trajetTable::getCorrespondance($context->depart, $context->arrivee, $context->nbpersonne);
 			if ($context->trip == null) {
 				$context->status = 'info';
 				$context->message = 'Aucun voyage disponible pour ce trajet';
