@@ -40,6 +40,6 @@
 <script>
 $("#inscription").on("click", function() {
     console.log($("#pseudo").val())
-    resultTravel($("#nom").val(), $("#prenom").val(), $("#pseudo").val(), $("#password").val(), $("#confpassword").val())
+    alertInscription($("#nom").val(), $("#prenom").val(), $("#pseudo").val(), $("#password").val(), $("#confpassword").val())
 });
 </script>
