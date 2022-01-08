@@ -52,6 +52,8 @@ class mainController
 		$context->arrivee = $request["arrivee"] ?? null;
 		$context->nbpersonne = $request["nbpersonne"] ?? null;
 
+		var_dump('caca');
+
 		if ($context->arrivee && $context->depart && $context->nbpersonne) {
 			$context->trip = trajetTable::getCorrespondance($context->depart, $context->arrivee, $context->nbpersonne);
 			if ($context->trip == null) {
