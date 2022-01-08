@@ -92,18 +92,6 @@ class mainController
 	//Permet à l'utilisateur de s'incrire et donc d'ajouter en base un utilisateur
 	public static function userInscription($request,$context)
 	{
-		$context->nom = $request["nom"] ?? null;
-		$context->prenom = $request["prenom"] ?? null;
-		$context->pseudo = $request["pseudo"] ?? null;
-		$context->password = $request["password"] ?? null;
-		$context->confpassword = $request["confpassword"] ?? null;
-
-		if ($context->nom && $context->prenom && $context->pseudo && $context->password && $context->confpassword) {
-			if ($context->password == $context->confpassword) {
-				utilisateurTable::createUser($context->nom, $context->prenom, $context->pseudo, $context->password);
-			} 
-		} 
-		
         return context::SUCCESS;
 	}
 
@@ -171,7 +159,7 @@ class mainController
 		$context->prenom = $request["prenom"];
 		$context->pseudo = $request["pseudo"];
 		$context->password = $request["password"];
-		$context->confpassword = $request["confpassword"];
+		$context->confpassword = $request["confpassword"];		
 
 		if (!empty($context->nom) ||!empty($context->prenom) || !empty($context->pseudo) || !empty($context->password) || !empty($context->confpassword)) {
 			if ($context->password != $context->confpassword) {
@@ -180,6 +168,7 @@ class mainController
 			} else {
 				$context->status = 'success';
 				$context->message = "Inscription réussi, vous pouvez dès maintenant vous connecter !";
+				utilisateurTable::createUser($context->nom, $context->prenom, $context->pseudo, $context->password);
 			}
 		} else {
 			$context->status = 'warning';
