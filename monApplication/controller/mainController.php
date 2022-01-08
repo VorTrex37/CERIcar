@@ -175,7 +175,7 @@ class mainController
 
 		var_dump('caca');
 
-		if (empty($context->nom) || empty($context->prenom) | empty($context->pseudo) | empty($context->password) || empty($context->confpassword)) {
+		if (!empty($context->nom) ||!empty($context->prenom) || !empty($context->pseudo) || !empty($context->password) || !empty($context->confpassword)) {
 			if ($context->password != $context->confpassword) {
 				$context->status = 'danger';
 				$context->message = "Les mots de passe saisis ne sont pas identiques";
