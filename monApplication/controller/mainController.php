@@ -181,10 +181,10 @@ class mainController
 
 		$context->pseudo = $request["pseudo"] ?? null;
 		$context->password = $request["password"] ?? null;
-		var_dump($context->pseudo);
 		if ($context->pseudo && $context->password) {
 				$user = utilisateurTable::getUserByLoginAndPass($context->pseudo, $context->password);
-				if (isset($user)) {
+				var_dump($user);
+				if (empty($user)) {
 					$context->status = 'info';
 					$context->message = "Vous n'avez pas encore de compte CERIcar";
 				}
