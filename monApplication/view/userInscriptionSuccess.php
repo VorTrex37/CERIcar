@@ -9,27 +9,27 @@
 
             <div class="form-group mb-4">
               <label class="form-label" for="nom">Nom</label>
-              <input type="text" id="nom" class="form-control form-control-lg" name="nom"/>
+              <input type="text" id="nom" class="form-control form-control-lg" name="nom" required/>
             </div>
 
             <div class="form-group mb-4">
               <label class="form-label" for="prenom">Prénom</label>
-              <input type="text" id="prenom" class="form-control form-control-lg" name="prenom"/>
+              <input type="text" id="prenom" class="form-control form-control-lg" name="prenom" required/>
             </div>
 
             <div class="form-group mb-4">
               <label class="form-label" for="pseudo">Pseudo</label>
-              <input type="text" id="pseudo" class="form-control form-control-lg" name="pseudo"/>
+              <input type="text" id="pseudo" class="form-control form-control-lg" name="pseudo" required/>
             </div>
 
             <div class="form-group mb-4">
               <label class="form-label" for="password">Mot de passe</label>
-              <input type="password" id="password" class="form-control form-control-lg" name="password"/>
+              <input type="password" id="password" class="form-control form-control-lg" name="password" required/>
             </div>
 
             <div class="form-group mb-4">
               <label class="form-label" for="confpassword">Confirmation mot de passe</label>
-              <input type="password" id="confpassword" class="form-control form-control-lg" name="confpassword" />
+              <input type="password" id="confpassword" class="form-control form-control-lg" name="confpassword" required/>
             </div>
             <button class="btn btn-primary btn-lg btn-block" id="inscription" type="submit" name="inscription">Envoyer</button>
           </div>
