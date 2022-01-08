@@ -162,6 +162,9 @@ class mainController
 			reservationTable::reservationVoyage($context->voyage->id, $_SESSION['id']);
 			voyageTable::updateVoyage($context->voyage->id, $context->voyage->nbPlace);
 		}
+
+		$context->status = 'success';
+		$context->message = "Le ou les voyage(s) sont été réservé avec succès";
 		
 		return context::SUCCESS;
 	}

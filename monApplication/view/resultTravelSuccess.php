@@ -1,6 +1,7 @@
 <!-- Résultat de la recherche de voyage de l'utilisateur -->
 <?php if ($context->depart != NULL && $context->arrivee != NULL && $context->nbpersonne > 0) { ?>
     <?php if ($context->trip != NULL) { ?> 
+        <div id="reserveVoyage"></div>
         <h2>Résultat pour le voyage  <?php echo $context->depart ?> - <?php echo $context->arrivee ?> pour <?php echo $context->nbpersonne ?> personne(s)</h2>  
         <?php foreach ($context->trip as $key => $travel){?> 
             <?php if (!empty($_SESSION['id'])) { ?>
@@ -50,12 +51,7 @@
         <?php } ?>
     <?php }?>
 <?php } ?>
-<div id="reserveVoyage"></div>
 
 <script type="text/javascript">
     afficheAlert("<?php echo $context->status ?>", "<?php echo $context->message ?>")
-</script>
-
-<script type="text/javascript">
-    // console.log($("#voyage0").val());
 </script>

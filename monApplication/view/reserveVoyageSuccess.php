@@ -1,1 +1,3 @@
-var_dump($context->voyage);
+<script type="text/javascript">
+    afficheAlert("<?php echo $context->status ?>", "<?php echo $context->message ?>")
+</script>
