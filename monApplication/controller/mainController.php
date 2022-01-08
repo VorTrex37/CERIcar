@@ -99,7 +99,9 @@ class mainController
 		$context->confpassword = $request["confpassword"] ?? null;
 
 		if ($context->nom && $context->prenom && $context->pseudo && $context->password && $context->confpassword) {
+			if ($context->password == $context->confpassword) {
 				utilisateurTable::createUser($context->nom, $context->prenom, $context->pseudo, $context->password);
+			} 
 		}		
 
         return context::SUCCESS;
