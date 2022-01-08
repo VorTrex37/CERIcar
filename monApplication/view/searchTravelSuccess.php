@@ -25,10 +25,8 @@
             <input type="number" id="nbpersonne" class="form-control w-50" min="1" name="nbpersonne" value="1" required/>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-                Correspondance
-            </label>
+            <input class="form-check-input" type="checkbox" id="correspondance" name="correspondance">
+            <label class="form-check-label" for="correspondance">Correspondance</label>
         </div>
     </div>
     <button id="searchTravel" class="btn btn-primary mb-5 m-2" style="padding: 5px 15px;">Rechercher</button>
