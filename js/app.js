@@ -32,7 +32,7 @@ function reserveVoyage(voyage) {
 }
 
 function alertInscription(nom, prenom, pseudo, password, confpassword) {
-
+    console.log('csc');
     $.ajax({
             //L'URL de la requête 
             url: 'dispatcherAjax.php?action=alertInscription&nom=' + nom + '&prenom=' + prenom + '&pseudo=' + pseudo + '&password=' + password + '&confpassword=' + confpassword,
