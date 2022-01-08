@@ -51,6 +51,9 @@ class mainController
 		$context->depart = $request["depart"] ?? null;	
 		$context->arrivee = $request["arrivee"] ?? null;
 		$context->nbpersonne = $request["nbpersonne"] ?? null;
+		$context->correspondance = $request["correspondance"] ?? null;
+
+		var_dump($context->correspondance);
 
 		if ($context->arrivee && $context->depart && $context->nbpersonne) {
 			$context->trip = trajetTable::getCorrespondance($context->depart, $context->arrivee, $context->nbpersonne);
@@ -92,6 +95,7 @@ class mainController
         return context::SUCCESS;
 	}
 
+	//Permet à un utilisateur de créer un voyage
 	public static function proposeVoyage($request,$context)
 	{
 		$context->depart = $request["depart"] ?? null;
@@ -109,8 +113,6 @@ class mainController
 			$context->message = "Veuillez remplir tous les champs";
 		}
 
-		
-
         return context::SUCCESS;
 	}
 
@@ -124,12 +126,14 @@ class mainController
 		return context::SUCCESS;
 	}
 
+	//Permet à utilisateur de voir son profil
 	public static function userProfil($request,$context){
 		$context->user = utilisateurTable::getUserById($_SESSION['id']);
 		$context->trip = reservationTable::getVoyageReserve($_SESSION['id']);
 		return context::SUCCESS;
 	}
 
+	//Permet au utilisateur de réserver des voyages
 	public static function reserveVoyage($request,$context){
 
 		$context->voyage = unserialize($request["voyage"]);
@@ -151,12 +155,11 @@ class mainController
 			reservationTable::reservationVoyage($context->voyage->id, $_SESSION['id']);
 			voyageTable::updateVoyage($context->voyage->id, $context->voyage->nbPlace, $context->nbPlace);
 		}
-
-		
 		
 		return context::SUCCESS;
 	}
 
+	//Permet d'envoyer les message d'alerte pour le formulaire Inscription
 	public static function alertInscription($request,$context){
 
 		$context->nom = $request["nom"] ?? null;
@@ -183,7 +186,7 @@ class mainController
 	}
 
 	
-	//Permet à l'utilisateur de se connecter et de concerver son id
+	//Permet à l'utilisateur de se connecter et de concerver son id et de gérer les erreurs
 	public static function alertConnexion($request,$context){
 
 		$context->pseudo = $request["pseudo"] ?? null;
