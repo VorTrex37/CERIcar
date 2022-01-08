@@ -139,27 +139,17 @@ class mainController
 
 		if (is_array($context->voyage)) {
 			foreach ($context->voyage as $key => $travel) {
-				if ($travel->nbPlace <  $context->nbPlace) {
-					$context->status = 'warning';
-					$context->message = "Impossible de réserver le voyage, il n'y a pas de place";
-				} else {
-					
-					reservationTable::reservationVoyage($travel->id, $_SESSION['id']);
-					voyageTable::updateVoyage($travel->id, $travel->nbPlace, $context->nbPlace);
-				}
+			
+				reservationTable::reservationVoyage($travel->id, $_SESSION['id']);
+				voyageTable::updateVoyage($travel->id, $travel->nbPlace, $context->nbPlace);
 			}
 			$context->status = 'success';
 			$context->message = "Les voyage ont été réservé avec succès";
 		} else {
-			if ($context->voyage->nbPlace <  $context->nbPlace) {
-				$context->status = 'warning';
-				$context->message = "Impossible de réserver le voyage, il n'y a pas de place";
-			} else {
-				$context->status = 'success';
-				$context->message = "Le voyage a été réservé avec succès";
-				reservationTable::reservationVoyage($context->voyage->id, $_SESSION['id']);
-				voyageTable::updateVoyage($context->voyage->id, $context->voyage->nbPlace, $context->nbPlace);
-			}
+			$context->status = 'success';
+			$context->message = "Le voyage a été réservé avec succès";
+			reservationTable::reservationVoyage($context->voyage->id, $_SESSION['id']);
+			voyageTable::updateVoyage($context->voyage->id, $context->voyage->nbPlace, $context->nbPlace);
 		}
 
 		
