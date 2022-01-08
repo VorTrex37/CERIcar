@@ -102,7 +102,9 @@ class mainController
 			if ($context->password == $context->confpassword) {
 				utilisateurTable::createUser($context->nom, $context->prenom, $context->pseudo, $context->password);
 			} 
-		}		
+		} else {
+			var_dump('caca');
+		}	
 
         return context::SUCCESS;
 	}
