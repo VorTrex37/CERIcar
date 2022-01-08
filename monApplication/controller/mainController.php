@@ -183,17 +183,17 @@ class mainController
 		$context->password = $request["password"] ?? null;
 		if ($context->pseudo && $context->password) {
 				$user = utilisateurTable::getUserByLoginAndPass($context->pseudo, $context->password);
-				var_dump(empty($user));
-				if (isset($user)) {
+				if (empty($user)) {
 					$context->status = 'info';
 					$context->message = "Vous n'avez pas encore de compte CERIcar";
+				} else {
+					$context->status = 'success';
+					$context->message = "Connexion réussi";
+					$context->user = $user;
+					session_start();
+					$_SESSION['id'] = $user->id;
+					$_SESSION['identifiant'] = $user->identifiant;
 				}
-				$context->status = 'success';
-				$context->message = "Connexion réussi";
-				$context->user = $user;
-				session_start();
-				$_SESSION['id'] = $user->id;
-				$_SESSION['identifiant'] = $user->identifiant;
 		} else {
 			$context->status = 'warning';
 			$context->message = "Veuillez remplir tous les champs";
