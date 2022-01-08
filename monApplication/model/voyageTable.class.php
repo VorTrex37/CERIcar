@@ -38,12 +38,12 @@ class voyageTable {
 		$user = utilisateurTable::getUserById($conducteur);
 		
 		$e = new voyage();
-		$e->conducteur = $user->id;
-		$e->trajet = $trajet->id;
-		$e->prenom = $tarif;
-		$e->nom = $nbPlace;
-		$e->nom = $heureDepart;
-		$e->nom = $contraintes;
+		$e->conducteur = $user;
+		$e->trajet = $trajet;
+		$e->tarif = $tarif;
+		$e->nbPlace = $nbPlace;
+		$e->heureDepart = $heureDepart;
+		$e->contraintes = $contraintes;
 
 		$em->persist($e);
 
