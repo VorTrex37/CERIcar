@@ -52,7 +52,7 @@
     <?php }?>
 <?php } ?>
 
-<div id="reserveVoyage"></div>
+<div id="resultTravel"></div>
 
 <script type="text/javascript">
     afficheAlert("<?php echo $context->status ?>", "<?php echo $context->message ?>")
