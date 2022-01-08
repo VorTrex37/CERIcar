@@ -39,6 +39,7 @@
 </form>
 <script>
 $("#inscription").on("click", function() {
+    console.log('caca')
     resultTravel($("#nom").val(), $("#prenom").val(), $("#pseudo").val(), $("#password").val(), $("#confpassword").val())
 });
 </script>
