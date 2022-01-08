@@ -25,7 +25,7 @@
             <input type="number" id="nbpersonne" class="form-control w-50" min="1" name="nbpersonne" value="1" required/>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="correspondance" name="correspondance">
+            <input class="form-check-input" type="checkbox" value="" id="correspondance" name="correspondance">
             <label class="form-check-label" for="correspondance">Correspondance</label>
         </div>
     </div>
@@ -35,6 +35,7 @@
 
 <script>
 $("#searchTravel").on("click", function() {
+    console.log($("#correspondance").val());
     resultTravel($("#depart").val(), $("#arrivee").val(), $("#nbpersonne").val(),  $("#correspondance").val())
 });
 </script>
