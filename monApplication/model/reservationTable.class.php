@@ -21,18 +21,14 @@ class reservationTable {
 		$voyageRepository = $em->getRepository('voyage');
 		$voyageR = $voyageRepository->find($voyage);
 
-		var_dump($voyageR);
-		
 		$emv = dbconnection::getInstance()->getEntityManager();
 		
 		$userRepository = $emv->getRepository('utilisateur');
 		$userR = $userRepository->find($user);
 		
 		$e = new reservation();
-		$e->id = 426;
 		$e->voyage = $voyageR;
 		$e->voyageur = $userR;
-
 		
 		$em->persist($e);
 		
