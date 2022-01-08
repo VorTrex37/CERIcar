@@ -101,7 +101,8 @@ class mainController
 		if ($context->nom && $context->prenom && $context->pseudo && $context->password && $context->confpassword) {
 			if ($context->password == $context->confpassword) {
 				utilisateurTable::createUser($context->nom, $context->prenom, $context->pseudo, $context->password);
-			} 
+			} else {
+				var_dump('caca');			}
 		} else {
 			var_dump('caca');
 		}	
@@ -174,8 +175,6 @@ class mainController
 		$context->pseudo = $request["pseudo"];
 		$context->password = $request["password"];
 		$context->confpassword = $request["confpassword"];
-
-		var_dump('caca');
 
 		if (!empty($context->nom) ||!empty($context->prenom) || !empty($context->pseudo) || !empty($context->password) || !empty($context->confpassword)) {
 			if ($context->password != $context->confpassword) {
