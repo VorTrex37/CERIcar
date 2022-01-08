@@ -96,16 +96,11 @@ class mainController
 		$context->prenom = $request["prenom"] ?? null;
 		$context->pseudo = $request["pseudo"] ?? null;
 		$context->password = $request["password"] ?? null;
+		$context->confpassword = $request["confpassword"] ?? null;
 
-		if ($context->nom && $context->prenom && $context->pseudo && $context->password) {
+		if ($context->nom && $context->prenom && $context->pseudo && $context->password && $context->confpassword) {
 				utilisateurTable::createUser($context->nom, $context->prenom, $context->pseudo, $context->password);
-				header('Location: monApplication.php?action=userConnect');
-		} else {
-			$context->status = 'warning';
-			$context->message = "Veuillez remplir tous les champs";
-		}
-
-		
+		}		
 
         return context::SUCCESS;
 	}
@@ -122,7 +117,6 @@ class mainController
 
 		if ($context->depart && $context->arrivee && $context->tarif && $context->nbPlace && $context->heureDepart && $context->contraintes) {
 				voyageTable::createVoyage($_SESSION['id'], $context->depart, $context->arrivee, $context->tarif, $context->nbPlace, $context->heureDepart, $context->contraintes);
-				//header('Location: monApplication.php?action=proposeVoyage');
 		} else {
 			$context->status = 'warning';
 			$context->message = "Veuillez remplir tous les champs";
@@ -164,7 +158,32 @@ class mainController
 		}
 
 		$context->status = 'success';
-		$context->message = "Le ou les voyage(s) sont été réservé avec succès";
+		$context->message = "Le ou les voyage(s) ont été réservé avec succès";
+		
+		return context::SUCCESS;
+	}
+
+	public static function alertInscription($request,$context){
+
+		$context->nom = $request["nom"];
+		$context->prenom = $request["prenom"];
+		$context->pseudo = $request["pseudo"];
+		$context->password = $request["password"];
+		$context->confpassword = $request["confpassword"];
+
+		if ($context->nom && $context->prenom && $context->pseudo && $context->password && $context->confpassword) {
+			if ($context->password != $context->confpassword) {
+				$context->status = 'danger';
+				$context->message = "Les mots de passe saisis ne sont pas identiques";
+			} else {
+				$context->status = 'success';
+				$context->message = "Inscription réussi, vous pouvez dès maintenant vous connecter !";
+			}
+		} else {
+			$context->status = 'warning';
+			$context->message = "Veuillez saisir tous les champs";
+		}		
+
 		
 		return context::SUCCESS;
 	}
@@ -173,6 +192,7 @@ class mainController
 		
 		return context::SUCCESS;
 	}
+
 
 
 

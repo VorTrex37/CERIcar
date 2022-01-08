@@ -1,3 +1,4 @@
+<div id="alertInscription"></div>
 <form method="POST" class="vh-100" id="formInscription">
    <div class="row d-flex justify-content-center align-items-center h-100 m-5">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -25,6 +26,11 @@
               <label class="form-label" for="password">Mot de passe</label>
               <input type="password" id="password" class="form-control form-control-lg" name="password" required/>
             </div>
+
+            <div class="form-group mb-4">
+              <label class="form-label" for="confpassword">Confirmation mot de passe</label>
+              <input type="password" id="confpassword" class="form-control form-control-lg" name="confpassword" required/>
+            </div>
             <button class="btn btn-primary btn-lg btn-block" id="inscription" type="submit" name="inscription">Envoyer</button>
           </div>
         </div>
@@ -32,11 +38,7 @@
     </div>
 </form>
 <script>
-  $("#inscription").on("click", function() 
-  {
-    var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-    var wrapper = document.createElement('div')
-    wrapper.innerHTML = '<div class="alert alert-' + "<?php echo $context->status ?>" + ' alert-dismissible d-flex align-items-center m-2" role="alert">' + "<div id='info'>" + "<?php echo $context->message ?>" + "</div>" + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
-    alertPlaceholder.append(wrapper)
-  });
+$("#inscription").on("click", function() {
+    resultTravel($("#nom").val(), $("#prenom").val(), $("#pseudo").val(), $("#password").val(), $("#confpassword").val())
+});
 </script>

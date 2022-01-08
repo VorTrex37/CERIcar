@@ -31,6 +31,21 @@ function reserveVoyage(voyage) {
         });
 }
 
+function alertInscription(nom, prenom, pseudo, password, confpassword) {
+
+    $.ajax({
+            //L'URL de la requête 
+            url: 'dispatcherAjax.php?action=alertInscription&nom=' + nom + '&prenom=' + prenom + '&pseudo=' + pseudo + '&password=' + password + '&confpassword=' + confpassword,
+
+            //La méthode d'envoi (type de requête)
+            method: 'GET',
+        })
+        //Ce code sera exécuté en cas de succès
+        .done(function(response) {
+            $('#alertInscription').html(response);
+        });
+}
+
 var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
 
 //Créer une alerte avec le message et le type souhaité
