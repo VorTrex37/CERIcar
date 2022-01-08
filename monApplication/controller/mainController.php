@@ -133,15 +133,26 @@ class mainController
 	public static function reserveVoyage($request,$context){
 
 		$context->voyage = unserialize($request["voyage"]);
+		$context->nbPlace = unserialize($request["nbPlace"]);
 
 		if (is_array($context->voyage)) {
 			foreach ($context->voyage as $key => $travel) {
-				reservationTable::reservationVoyage($travel->id, $_SESSION['id']);
-				voyageTable::updateVoyage($travel->id, $travel->nbPlace);
+				if ($travel->nbPlace <  $context->nbPlace) {
+					$context->status = 'warning';
+					$context->message = "Impossible de réserver le voyage, il n'y a pas de place";
+				} else {
+					reservationTable::reservationVoyage($travel->id, $_SESSION['id']);
+					voyageTable::updateVoyage($travel->id, $travel->nbPlace, $context->nbPlace);
+				}
 			}
 		} else {
-			reservationTable::reservationVoyage($context->voyage->id, $_SESSION['id']);
-			voyageTable::updateVoyage($context->voyage->id, $context->voyage->nbPlace);
+			if ($context->voyage->nbPlace <  $context->nbPlace) {
+				$context->status = 'warning';
+				$context->message = "Impossible de réserver le voyage, il n'y a pas de place";
+			} else {
+				reservationTable::reservationVoyage($context->voyage->id, $_SESSION['id']);
+				voyageTable::updateVoyage($context->voyage->id, $context->voyage->nbPlace, $context->nbPlace);
+			}
 		}
 
 		$context->status = 'success';

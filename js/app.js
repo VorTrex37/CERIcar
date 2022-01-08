@@ -13,7 +13,7 @@ function resultTravel(depart, arrivee, nbpersonne, correspondance) {
         });
 }
 
-function reserveVoyage(voyage) {
+function reserveVoyage(voyage, nbPlace) {
 
     $.ajax({
             //L'URL de la requête 
@@ -22,7 +22,7 @@ function reserveVoyage(voyage) {
             //La méthode d'envoi (type de requête)
             method: 'POST',
 
-            data: { "voyage": voyage }
+            data: { "voyage": voyage, "nbPlace": nbPlace }
         })
         //Ce code sera exécuté en cas de succès
         .done(function(response) {

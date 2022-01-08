@@ -6,7 +6,7 @@
         <?php foreach ($context->trip as $key => $travel){?> 
             <?php if (!empty($_SESSION['id'])) { ?>
                 <input type='hidden' id="voyage<?php  echo $key?>" name="voyage<?php  echo $key?>" value="<?php echo htmlentities(serialize($travel));?>"/>
-                <a  id="tabReserve" class="btn btn-primary mt-4" style="float: right;" onclick='reserveVoyage($("#voyage<?php  echo $key?>").val())'>Réserver</a>
+                <a  id="tabReserve" class="btn btn-primary mt-4" style="float: right;" onclick='reserveVoyage($("#voyage<?php  echo $key?>").val(), <?php echo $context->nbpersonne?>)'>Réserver</a>
             <?php } ?>
             <?php if (empty($_SESSION['id'])) { ?>
                 <table class="table mt-4">
