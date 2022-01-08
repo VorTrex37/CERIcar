@@ -35,6 +35,6 @@
 
 <script>
 $("#searchTravel").on("click", function() {
-    resultTravel($("#depart").val(), $("#arrivee").val(), $("#nbpersonne").val())
+    resultTravel($("#depart").val(), $("#arrivee").val(), $("#nbpersonne").val(),  $("#correspondance").val())
 });
 </script>

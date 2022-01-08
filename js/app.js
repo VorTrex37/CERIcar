@@ -1,8 +1,8 @@
 //Affiche le résultat du voyage
-function resultTravel(depart, arrivee, nbpersonne) {
+function resultTravel(depart, arrivee, nbpersonne, correspondance) {
     $.ajax({
             //L'URL de la requête 
-            url: 'dispatcherAjax.php?action=resultTravel&depart=' + depart + '&arrivee=' + arrivee + '&nbpersonne=' + nbpersonne,
+            url: 'dispatcherAjax.php?action=resultTravel&depart=' + depart + '&arrivee=' + arrivee + '&nbpersonne=' + nbpersonne + '&correspondance=' + correspondance,
 
             //La méthode d'envoi (type de requête)
             method: 'GET',
