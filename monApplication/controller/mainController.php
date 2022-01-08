@@ -92,6 +92,19 @@ class mainController
 	//Permet à l'utilisateur de s'incrire et donc d'ajouter en base un utilisateur
 	public static function userInscription($request,$context)
 	{
+		$context->nom = $request["nom"] ?? null;
+		$context->prenom = $request["prenom"] ?? null;
+		$context->pseudo = $request["pseudo"] ?? null;
+		$context->password = $request["password"] ?? null;
+		$context->confpassword = $request["confpassword"] ?? null;
+
+		if ($context->nom && $context->prenom && $context->pseudo && $context->password && $context->confpassword) {
+			if ($context->password == $context->confpassword) {
+				utilisateurTable::createUser($context->nom, $context->prenom, $context->pseudo, $context->password);
+			}
+		}
+		
+
         return context::SUCCESS;
 	}
 
@@ -155,13 +168,15 @@ class mainController
 
 	public static function alertInscription($request,$context){
 
-		$context->nom = $request["nom"];
-		$context->prenom = $request["prenom"];
-		$context->pseudo = $request["pseudo"];
-		$context->password = $request["password"];
-		$context->confpassword = $request["confpassword"];		
+		$context->nom = $request["nom"] ?? null;
+		$context->prenom = $request["prenom"] ?? null;
+		$context->pseudo = $request["pseudo"]?? null;
+		$context->password = $request["password"] ?? null;
+		$context->confpassword = $request["confpassword"] ?? null;	
 
-		if (!empty($context->nom) ||!empty($context->prenom) || !empty($context->pseudo) || !empty($context->password) || !empty($context->confpassword)) {
+		if ($context->nom && $context->prenom && $context->pseudo && $context->password && $context->confpassword) {	
+			var_dump($context->nom);
+			
 			if ($context->password != $context->confpassword) {
 				$context->status = 'danger';
 				$context->message = "Les mots de passe saisis ne sont pas identiques";
@@ -175,7 +190,6 @@ class mainController
 			$context->message = "Veuillez saisir tous les champs";
 		}		
 
-		
 		return context::SUCCESS;
 	}
 
@@ -183,8 +197,5 @@ class mainController
 		
 		return context::SUCCESS;
 	}
-
-
-
 
 }
