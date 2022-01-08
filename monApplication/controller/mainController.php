@@ -205,6 +205,7 @@ class mainController
 					$context->user = $user;
 					$_SESSION['id'] = $user->id;
 					$_SESSION['identifiant'] = $user->identifiant;
+					header('Location: monApplication.php');
 				}
 		} else {
 			$context->status = 'warning';
