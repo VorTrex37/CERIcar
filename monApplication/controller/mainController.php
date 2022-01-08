@@ -103,7 +103,7 @@ class mainController
 		$context->cities = trajetTable::getCities();		
 
 		if ($context->depart && $context->arrivee && $context->tarif && $context->nbPlace && $context->heureDepart && $context->contraintes) {
-				voyageTable::createVoyage($_SESSION['id'], $context->depart, $context->arrivee, $context->tarif, $context->nbPlace, $context->heureDepart, $context->contraintes);
+				voyageTable::createVoyage($request['userID'], $context->depart, $context->arrivee, $context->tarif, $context->nbPlace, $context->heureDepart, $context->contraintes);
 		} else {
 			$context->status = 'warning';
 			$context->message = "Veuillez remplir tous les champs";
@@ -125,8 +125,8 @@ class mainController
 	}
 
 	public static function userProfil($request,$context){
-		$context->user = utilisateurTable::getUserById($_SESSION['id']);
-		$context->trip = reservationTable::getVoyageReserve($_SESSION['id']);
+		$context->user = utilisateurTable::getUserById($request['userID']);
+		$context->trip = reservationTable::getVoyageReserve($request['userID']);
 		return context::SUCCESS;
 	}
 
@@ -136,11 +136,11 @@ class mainController
 
 		if (is_array($context->voyage)) {
 			foreach ($context->voyage as $key => $travel) {
-				reservationTable::reservationVoyage($travel->id, $_SESSION['id']);
+				reservationTable::reservationVoyage($travel->id, $request['userID']);
 				voyageTable::updateVoyage($travel->id, $travel->nbPlace);
 			}
 		} else {
-			reservationTable::reservationVoyage($context->voyage->id, $_SESSION['id']);
+			reservationTable::reservationVoyage($context->voyage->id, $request['userID']);
 			voyageTable::updateVoyage($context->voyage->id, $context->voyage->nbPlace);
 		}
 
@@ -189,10 +189,8 @@ class mainController
 				} else {
 					$context->status = 'success';
 					$context->message = "Connexion réussi";
-					$context->user = $user;
-					session_start();
-					$_SESSION['id'] = $user->id;
-					$_SESSION['identifiant'] = $user->identifiant;
+					$request['userID'] = $user->id;
+					$request['userIdentifiant'] = $user->identifiant;
 				}
 		} else {
 			$context->status = 'warning';

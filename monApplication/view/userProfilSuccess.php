@@ -1,4 +1,4 @@
-<h1 class="m-3">Profil de <?php echo $_SESSION['identifiant'] ?></h1>
+<h1 class="m-3">Profil de <?php echo $request['userIdentifiant'] ?></h1>
 <div class="card" style="width: 18rem; margin: 0 auto;">
     <img src="images/avatar.png" width="300" height="221">  
     <div class="card-body">
