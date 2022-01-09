@@ -45,21 +45,21 @@
         <li class="nav-item">
           <a class="nav-link" href="monApplication.php?action=searchTravel">Recherche de voyage</a>
         </li>
-        <?php if (!empty($_SESSION['id'])) { ?>
+        <?php if (!empty($context->getSessionAttribute('userId'))) { ?>
           <li class="nav-item">
           <a class="nav-link" href="monApplication.php?action=proposeVoyage">Proposer un voyage</a>
         </li>
       <?php } ?>
       </ul>
       <ul class="navbar-nav mr-auto">
-      <?php if (empty($_SESSION['id'])) { ?>
+      <?php if ($context->getSessionAttribute('userId')) { ?>
         <li class="nav-item">
           <a class="nav-link" href="monApplication.php?action=userConnect">Connexion</a>
         </li>
       <?php } else { ?>
         <li class="nav-item dropdown" style="float: right;">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <?php echo $_SESSION['identifiant']?>
+          <?php echo $context->getSessionAttribute('userIdentifiant')?>
           </a>
             <ul class="dropdown-menu mr-auto" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="monApplication.php?action=userProfil">Profil</a></li>
@@ -71,13 +71,11 @@
     </div>
   </div>
 </nav>
-
-<!-- <h2>Super c'est ton appli ! </h2> -->
-<?php if($context->getSessionAttribute('user_id')): ?>
-<?php echo $context->getSessionAttribute('user_id')." est connecte"; ?>
-<?php endif; ?>
   
 <div class="container" id="page_maincontent">	
+  <?php if (str_replace("/CERIcar/", "",  $_SERVER['REQUEST_URI']) == "monApplication.php") { ?>
+    <img src="images/convoiturage_t.png">
+  <?php } ?>
   <!-- Bandeau dynamique -->
   <div id="liveAlertPlaceholder"></div>
    <!-- Contenu de la vue -->

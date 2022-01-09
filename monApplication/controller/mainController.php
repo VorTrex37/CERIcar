@@ -118,8 +118,8 @@ class mainController
 
 	//Permet à utilisateur de voir son profil
 	public static function userProfil($request,$context){
-		$context->user = utilisateurTable::getUserById($_SESSION['id']);
-		$context->trip = reservationTable::getVoyageReserve($_SESSION['id']);
+		$context->user = utilisateurTable::getUserById($context->getSessionAttribute('userId'));
+		$context->trip = reservationTable::getVoyageReserve($context->getSessionAttribute('userId'));
 		return context::SUCCESS;
 	}
 
@@ -131,7 +131,7 @@ class mainController
 
 		if (is_array($context->voyage)) {
 			foreach ($context->voyage as $key => $travel) {
-				reservationTable::reservationVoyage($travel->id, $_SESSION['id']);
+				reservationTable::reservationVoyage($travel->id, $context->getSessionAttribute('userId'));
 				voyageTable::updateVoyage($travel->id, $travel->nbPlace, $context->nbPlace);
 			}
 			$context->status = 'success';
@@ -143,7 +143,7 @@ class mainController
 			} else {
 				$context->status = 'success';
 				$context->message = "Le voyage a été réservé avec succès";
-				reservationTable::reservationVoyage($context->voyage->id, $_SESSION['id']);
+				reservationTable::reservationVoyage($context->voyage->id,$context->getSessionAttribute('userId'));
 				voyageTable::updateVoyage($context->voyage->id, $context->voyage->nbPlace, $context->nbPlace);
 			}
 		}
@@ -191,9 +191,8 @@ class mainController
 				} else {
 					$context->status = 'success';
 					$context->message = "Connexion réussi";
-					$context->user = $user;
-					$_SESSION['id'] = $user->id;
-					$_SESSION['identifiant'] = $user->identifiant;
+					$context->setSessionAttribute('useriId', $user->id);
+					$context->setSessionAttribute('userIdentifiant', $user->identifiant);
 				}
 		} else {
 			$context->status = 'warning';
@@ -215,7 +214,7 @@ class mainController
 		if ($context->depart && $context->arrivee && $context->tarif >= 0 && $context->nbPlace && $context->heureDepart >= 0 && $context->contraintes ||  $context->contraintes == "") {
 			$context->status = 'success';
 			$context->message = "Votre voyage a bien été ajouté";
-			voyageTable::createVoyage($_SESSION['id'], $context->depart, $context->arrivee, $context->tarif, $context->nbPlace, $context->heureDepart, $context->contraintes);	
+			voyageTable::createVoyage($context->getSessionAttribute('userId'), $context->depart, $context->arrivee, $context->tarif, $context->nbPlace, $context->heureDepart, $context->contraintes);	
 		} else {
 			$context->status = 'warning';
 			$context->message = "Veuillez remplir tous les champs";
