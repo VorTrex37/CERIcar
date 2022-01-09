@@ -63,6 +63,22 @@ function alertConnexion(pseudo, password) {
         });
 }
 
+function alertVoyage(depart, arrivee, tarif, nbPlace, heureDepart, contraintes) {
+    $.ajax({
+            //L'URL de la requête 
+            url: 'dispatcherAjax.php?action=alertVoyage',
+
+            //La méthode d'envoi (type de requête)
+            method: 'POST',
+
+            data: { "depart": depart, "arrivee": arrivee, "tarif": tarif, "nbPlace": nbPlace, "heureDepart": heureDepart, "contraintes": contraintes }
+        })
+        //Ce code sera exécuté en cas de succès
+        .done(function(response) {
+            $('#alertVoyage').html(response);
+        });
+}
+
 function redirect(session) {
     if (session) {
         setTimeout(window.location.replace("monApplication.php"), 5000);

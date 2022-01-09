@@ -111,9 +111,6 @@ class mainController
 
 		if ($context->depart && $context->arrivee && $context->tarif && $context->nbPlace && $context->heureDepart && $context->contraintes) {
 				voyageTable::createVoyage($_SESSION['id'], $context->depart, $context->arrivee, $context->tarif, $context->nbPlace, $context->heureDepart, $context->contraintes);
-		} else {
-			$context->status = 'warning';
-			$context->message = "Veuillez remplir tous les champs";
 		}
 
         return context::SUCCESS;
@@ -164,7 +161,7 @@ class mainController
 		return context::SUCCESS;
 	}
 
-	//Permet d'envoyer les message d'alerte pour le formulaire Inscription
+	//Permet d'envoyer les messages d'alertes pour le formulaire Inscription
 	public static function alertInscription($request,$context){
 
 		$context->nom = $request["nom"] ?? null;
@@ -212,6 +209,27 @@ class mainController
 			$context->status = 'warning';
 			$context->message = "Veuillez remplir tous les champs";
 		}
+		return context::SUCCESS;
+	}
+
+	//Permet d'envoyer les messages d'alertes pour le formulaire Voyage
+	public static function alertVoyage($request,$context){
+
+		$context->depart = $request["depart"] ?? null;
+		$context->arrivee = $request["arrivee"] ?? null;
+		$context->tarif = $request["tarif"] ?? null;
+		$context->nbPlace = $request["nbPlace"] ?? null;
+		$context->heureDepart = $request["heureDepart"] ?? null;
+		$context->contraintes = $request["contraintes"] ?? null;
+
+		if ($context->depart && $context->arrivee && $context->tarif && $context->nbPlace && $context->heureDepart && $context->contraintes) {
+			$context->status = 'success';
+			$context->message = "Votre voyage a bien été ajouté";		
+		} else {
+			$context->status = 'warning';
+			$context->message = "Veuillez remplir tous les champs";
+		}
+		
 		return context::SUCCESS;
 	}
 
