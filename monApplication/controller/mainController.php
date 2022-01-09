@@ -101,19 +101,8 @@ class mainController
 	//Permet à un utilisateur de créer un voyage
 	public static function proposeVoyage($request,$context)
 	{
-		$context->depart = $request["depart"] ?? null;
-		$context->arrivee = $request["arrivee"] ?? null;
-		$context->tarif = $request["tarif"] ?? null;
-		$context->nbPlace = $request["nbPlace"] ?? null;
-		$context->heureDepart = $request["heureDepart"] ?? null;
-		$context->contraintes = $request["contraintes"] ?? null;
-		$context->cities = trajetTable::getCities();		
 
-		if ($context->depart && $context->arrivee && $context->tarif && $context->nbPlace && $context->heureDepart && $context->contraintes) {
-				voyageTable::createVoyage($_SESSION['id'], $context->depart, $context->arrivee, $context->tarif, $context->nbPlace, $context->heureDepart, $context->contraintes);
-		}
-
-        return context::SUCCESS;
+		context::SUCCESS;
 	}
 
 	//Permet à un utilisateur de se déconnecter
@@ -224,7 +213,8 @@ class mainController
 
 		if ($context->depart && $context->arrivee && $context->tarif && $context->nbPlace && $context->heureDepart && $context->contraintes) {
 			$context->status = 'success';
-			$context->message = "Votre voyage a bien été ajouté";		
+			$context->message = "Votre voyage a bien été ajouté";
+			voyageTable::createVoyage($_SESSION['id'], $context->depart, $context->arrivee, $context->tarif, $context->nbPlace, $context->heureDepart, $context->contraintes);	
 		} else {
 			$context->status = 'warning';
 			$context->message = "Veuillez remplir tous les champs";
