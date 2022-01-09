@@ -42,9 +42,6 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="monApplication.php">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="monApplication.php?action=searchTravel">Recherche de voyage</a>
-        </li>
         <?php if (!empty($_SESSION['id'])) { ?>
           <li class="nav-item">
           <a class="nav-link" href="monApplication.php?action=proposeVoyage">Proposer un voyage</a>
