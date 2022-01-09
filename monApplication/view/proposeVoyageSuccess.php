@@ -29,17 +29,17 @@
 
             <div class="form-group mb-4">
               <label class="form-label" for="tarif">Tarif</label>
-              <input type="number" id="tarif" class="form-control" min="0" name="tarif" value="0" required/>
+              <input type="number" id="tarif" class="form-control" min="0" name="tarif" required/>
             </div>
 
             <div class="form-group mb-4">
               <label class="form-label">Nombre de place(s) </label>
-              <input type="number" id="nbPlace" class="form-control" min="1" name="nbPlace" value="1" required/>
+              <input type="number" id="nbPlace" class="form-control" min="1" name="nbPlace" required/>
             </div>
 
             <div class="form-group mb-4">
               <label class="form-label">Heure de départ</label>
-              <input type="number" id="heureDepart" class="form-control" min="0" name="heureDepart" value="0" required/>
+              <input type="number" id="heureDepart" class="form-control" min="0" name="heureDepart" required/>
             </div>
 
             <div class="form-group mb-4">
