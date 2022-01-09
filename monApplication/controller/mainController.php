@@ -192,6 +192,7 @@ class mainController
 					$context->status = 'success';
 					$context->message = "Connexion réussi";
 					$context->setSessionAttribute('userId', $user->id);
+					var_dump($context->setSessionAttribute('userId', $user->id));
 					$context->setSessionAttribute('userIdentifiant', $user->identifiant);
 				}
 		} else {
