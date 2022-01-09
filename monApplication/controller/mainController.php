@@ -142,8 +142,6 @@ class mainController
 		$context->voyage = unserialize($request["voyage"]);
 		$context->nbPlace =$request["nbPlace"];
 
-		var_dump($context->nbPlace);
-
 		if (is_array($context->voyage)) {
 			foreach ($context->voyage as $key => $travel) {
 			
@@ -153,10 +151,15 @@ class mainController
 			$context->status = 'success';
 			$context->message = "Les voyage ont été réservé avec succès";
 		} else {
-			$context->status = 'success';
-			$context->message = "Le voyage a été réservé avec succès";
-			reservationTable::reservationVoyage($context->voyage->id, $_SESSION['id']);
-			voyageTable::updateVoyage($context->voyage->id, $context->voyage->nbPlace, $context->nbPlace);
+			if ($context->nbPlace >  $context->voyage->nbPlace) {
+				$context->status = 'warning';
+				$context->message = "Impossible de réserver le voyage, il n'y a pas assez de places";
+			} else {
+				$context->status = 'success';
+				$context->message = "Le voyage a été réservé avec succès";
+				reservationTable::reservationVoyage($context->voyage->id, $_SESSION['id']);
+				voyageTable::updateVoyage($context->voyage->id, $context->voyage->nbPlace, $context->nbPlace);
+			}
 		}
 		
 		return context::SUCCESS;
