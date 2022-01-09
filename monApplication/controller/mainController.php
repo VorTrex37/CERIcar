@@ -101,8 +101,7 @@ class mainController
 	//Permet à un utilisateur de créer un voyage
 	public static function proposeVoyage($request,$context)
 	{
-
-		context::SUCCESS;
+        return context::SUCCESS;
 	}
 
 	//Permet à un utilisateur de se déconnecter
@@ -214,7 +213,7 @@ class mainController
 		if ($context->depart && $context->arrivee && $context->tarif && $context->nbPlace && $context->heureDepart && $context->contraintes) {
 			$context->status = 'success';
 			$context->message = "Votre voyage a bien été ajouté";
-			voyageTable::createVoyage($_SESSION['id'], $context->depart, $context->arrivee, $context->tarif, $context->nbPlace, $context->heureDepart, $context->contraintes);	
+			voyageTable::createVoyage($_SESSION['id'], $context->depart, $context->arrivee, $context->tarif, $context->nbPlace, $context->heureDepart, $context->contraintes);		
 		} else {
 			$context->status = 'warning';
 			$context->message = "Veuillez remplir tous les champs";
