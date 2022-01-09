@@ -3,7 +3,7 @@
 $nameApp = "monApplication";
 
 //action par défaut
-$action = "index";
+$action = "searchTravel";
 
 if(key_exists("action", $_REQUEST))
 $action =  $_REQUEST['action'];
