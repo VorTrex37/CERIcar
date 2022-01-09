@@ -78,7 +78,7 @@
 <?php endif; ?>
   
 <div class="container" id="page_maincontent">	
-  <?php if (str_replace("/CERIcar/", "",  $_SERVER['REQUEST_URI']) == "monApplication.php") { ?>
+  <?php if (str_replace("/~uapv2204316/CERIcar/", "",  $_SERVER['REQUEST_URI']) == "monApplication.php") { ?>
     <img src="images/convoiturage_t.png">
   <?php } ?>
   <?php var_dump( $_SERVER['REQUEST_URI']); ?>
