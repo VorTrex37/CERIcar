@@ -144,7 +144,6 @@ class mainController
 
 		if (is_array($context->voyage)) {
 			foreach ($context->voyage as $key => $travel) {
-			
 				reservationTable::reservationVoyage($travel->id, $_SESSION['id']);
 				voyageTable::updateVoyage($travel->id, $travel->nbPlace, $context->nbPlace);
 			}
