@@ -212,7 +212,7 @@ class mainController
 		$context->heureDepart = $request["heureDepart"] ?? null;
 		$context->contraintes = $request["contraintes"] ?? null;
 
-		if ($context->depart && $context->arrivee && $context->tarif >= 0 && $context->nbPlace && $context->heureDepart >= 0 && $context->contraintes ||  $context->contraintes == "") {
+		if ($context->depart && $context->arrivee && $context->tarif >= 0 && $context->nbPlace && $context->heureDepart >= 0 && $context->contraintes) {
 			$context->status = 'success';
 			$context->message = "Votre voyage a bien été ajouté";
 			voyageTable::createVoyage($_SESSION['id'], $context->depart, $context->arrivee, $context->tarif, $context->nbPlace, $context->heureDepart, $context->contraintes);	
