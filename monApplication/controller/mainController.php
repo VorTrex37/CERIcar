@@ -214,7 +214,7 @@ class mainController
 
 		var_dump($context->depart . '--' . $context->arrivee . '--' . $context->tarif . '--' . $context->nbPlace . '--' . $context->heureDepart . '--' . $context->contraintes);
 
-		if ($context->depart && $context->arrivee && $context->tarif && $context->nbPlace && $context->heureDepart && $context->contraintes || $context->contraintes == "" || $context->heureDepart == 0  || $context->tarif == 0) {
+		if ($context->depart && $context->arrivee && $context->tarif && $context->nbPlace && $context->heureDepart && $context->contraintes) {
 			$context->status = 'success';
 			$context->message = "Votre voyage a bien été ajouté";
 			//voyageTable::createVoyage($_SESSION['id'], $context->depart, $context->arrivee, $context->tarif, $context->nbPlace, $context->heureDepart, $context->contraintes);	
