@@ -26,8 +26,6 @@
 
   <script>
 $("#formConnexion").on("click", function() {
-  console.log($("#pseudo").val());
-  console.log($("#password").val());
     alertConnexion($("#pseudo").val(), $("#password").val())
 });
 </script>
