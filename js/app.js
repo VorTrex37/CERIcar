@@ -63,6 +63,13 @@ function alertConnexion(pseudo, password) {
         });
 }
 
+function redirect(session) {
+    if (session) {
+        setTimeout(window.location.replace("monApplication.php"), 5000);
+
+    }
+}
+
 var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
 
 //Créer une alerte avec le message et le type souhaité
