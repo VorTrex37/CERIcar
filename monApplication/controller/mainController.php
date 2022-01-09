@@ -212,8 +212,6 @@ class mainController
 		$context->heureDepart = $request["heureDepart"] ?? null;
 		$context->contraintes = $request["contraintes"] ?? null;
 
-		var_dump($context->depart . '--' . $context->arrivee . '--' . $context->tarif . '--' . $context->nbPlace . '--' . $context->heureDepart . '--' . $context->contraintes);
-
 		if ($context->depart && $context->arrivee && $context->tarif >= 0 && $context->nbPlace && $context->heureDepart >= 0 && $context->contraintes ||  $context->contraintes == "") {
 			$context->status = 'success';
 			$context->message = "Votre voyage a bien été ajouté";
