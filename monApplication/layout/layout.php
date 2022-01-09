@@ -40,7 +40,7 @@
     <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="monApplication.php">Home</a>
+          <a class="nav-link active" aria-current="page" href="monApplication.php">Covoiturage</a>
         </li>
         <?php if (!empty($_SESSION['id'])) { ?>
           <li class="nav-item">
