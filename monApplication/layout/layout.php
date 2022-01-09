@@ -79,7 +79,7 @@
   
 <div class="container" id="page_maincontent">	
   <?php if (str_replace("/~uapv2204316/CERIcar/", "",  $_SERVER['REQUEST_URI']) == "monApplication.php") { ?>
-    <img id="Iconvoiturage" src="images/convoiturage_t.png">
+    <img id="Iconvoiturage" src="images/convoiturage.png">
   <?php } ?>
   <!-- Bandeau dynamique -->
   <div id="liveAlertPlaceholder"></div>
