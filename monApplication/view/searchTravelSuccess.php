@@ -1,5 +1,5 @@
 <!-- Formulaire de recherche -->
-<h1 class="mb-2 mt-2">Recherchez un voyage</h1>
+<h1 class="">Recherchez un voyage</h1>
     <input type="hidden" name="action" value="searchTravel">
     <div class="d-flex flex-row" style="align-items: center;">
         <div class="p-2">
