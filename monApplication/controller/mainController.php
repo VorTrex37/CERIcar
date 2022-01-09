@@ -191,7 +191,7 @@ class mainController
 				} else {
 					$context->status = 'success';
 					$context->message = "Connexion réussi";
-					$context->setSessionAttribute('useriId', $user->id);
+					$context->setSessionAttribute('userId', $user->id);
 					$context->setSessionAttribute('userIdentifiant', $user->identifiant);
 				}
 		} else {
