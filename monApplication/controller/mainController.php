@@ -54,7 +54,7 @@ class mainController
 		$context->correspondance = $request["correspondance"] ?? null;
 
 		if ($context->arrivee && $context->depart && $context->nbpersonne) {
-			if ($context->correspondance == 'true') {
+			if ($context->correspondance == 'false') {
 				$context->trajet = trajetTable::getTrajet($context->depart, $context->arrivee);
 				$context->trip = voyageTable::getVoyagesByTrajet($context->trajet);
 			} else {
