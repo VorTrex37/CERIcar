@@ -212,7 +212,7 @@ class mainController
 		$context->heureDepart = $request["heureDepart"] ?? null;
 		$context->contraintes = $request["contraintes"] ?? 'Aucune contrainte';
 
-		var_dump('Aucune contrainte');
+		var_dump($context->contraintes);
 
 		if ($context->depart && $context->arrivee && $context->tarif >= 0 && $context->nbPlace && $context->heureDepart >= 0 && $context->contraintes) {
 			$context->status = 'success';
