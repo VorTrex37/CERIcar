@@ -210,7 +210,11 @@ class mainController
 		$context->tarif = $request["tarif"] ?? null;
 		$context->nbPlace = $request["nbPlace"] ?? null;
 		$context->heureDepart = $request["heureDepart"] ?? null;
-		$context->contraintes = $request["contraintes"] ?? 'Aucune contrainte';
+		$context->contraintes = $request["contraintes"] ?? null;
+		
+		if (empty($context->contraintes)) {
+			$context->contraintes = 'Aucune contrainte';
+		}
 
 		var_dump($context->contraintes);
 
