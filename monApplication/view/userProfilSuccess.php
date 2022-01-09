@@ -10,7 +10,6 @@
     <table id="reserve" class="table m-2">
         <thead>
             <tr>
-            <th scope="col">Nombre de place</th>
             <th scope="col">Heure de départ</th>
             <th scope="col">Tarif</th>
             <th scope="col">Conducteur</th>
@@ -20,7 +19,6 @@
         </thead>
         <tbody>
               <tr>
-                  <td><?php echo $travel->nbPlace ?></td>
                   <td><?php echo $travel->heureDepart . ' h'?></td>
                   <td><?php echo $travel->tarif . ' €' ?></td>
                   <td><?php echo $travel->conducteur->prenom . ' ' .  $travel->conducteur->nom?></td>
