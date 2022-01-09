@@ -81,6 +81,7 @@
   <?php if (str_replace("/CERIcar/", "",  $_SERVER['REQUEST_URI']) == "monApplication.php") { ?>
     <img src="images/convoiturage_t.png">
   <?php } ?>
+  <?php var_dump( $_SERVER['REQUEST_URI']); ?>
   <!-- Bandeau dynamique -->
   <div id="liveAlertPlaceholder"></div>
    <!-- Contenu de la vue -->
