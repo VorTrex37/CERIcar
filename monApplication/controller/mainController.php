@@ -55,9 +55,13 @@ class mainController
 
 		if ($context->arrivee && $context->depart && $context->nbpersonne) {
 			if ($context->correspondance == 'false') {
+				$context->status = 'success';
+				$context->message = 'Un ou des voyage(s) sont disponibles';
 				$context->trajet = trajetTable::getTrajet($context->depart, $context->arrivee);
 				$context->trip = voyageTable::getVoyagesByTrajet($context->trajet);
 			} else {
+				$context->status = 'success';
+				$context->message = 'Un ou des voyage(s) sont disponibles';
 				$context->trip = trajetTable::getCorrespondance($context->depart, $context->arrivee, $context->nbpersonne);
 			}
 			if ($context->trip == null) {
